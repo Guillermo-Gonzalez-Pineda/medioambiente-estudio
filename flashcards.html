@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards — Medio Ambiente</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div class="hero">
+  <div class="hero-badge">Ciencias Ambientales · Grado</div>
+  <h1>Flashcards<br><span>Tarjetas de Estudio</span></h1>
+  <p>Haz clic en la tarjeta para ver la respuesta. Usa las flechas del teclado para navegar.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">36</span><span class="lbl">Flashcards</span></div>
+    <div class="hero-stat"><span class="num">4</span><span class="lbl">Temas</span></div>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-link">🏠 Inicio</a>
+  <a href="teoria.html" class="nav-link">📗 Teoría</a>
+  <a href="flashcards.html" class="nav-link active">🃏 Flashcards</a>
+  <a href="test.html" class="nav-link">🎯 Test</a>
+  <a href="banco.html" class="nav-link">📦 Banco</a>
+  <a href="casos-practicos.html" class="nav-link">🔬 Casos Prácticos</a>
+  <a href="ia.html" class="nav-link">🤖 IA</a>
+</nav>
+
+<main>
+  <p class="section-subtitle">Flashcards</p>
+  <h1 class="section-title">Tarjetas de Estudio</h1>
+
+  <div class="card" style="text-align:center;">
+    <p style="color:var(--text3);font-size:13px;margin-bottom:20px">Haz clic en la tarjeta para ver la respuesta. Usa ← → del teclado para navegar y Espacio para voltear.</p>
+
+    <div class="flashcard-container">
+      <div class="flashcard" id="flashcard" onclick="flipCard()">
+        <div class="flashcard-face flashcard-front">
+          <div class="flashcard-label">PREGUNTA</div>
+          <div class="flashcard-text" id="fc-front-text">Cargando...</div>
+          <div class="flashcard-hint">← Clic para ver respuesta →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="flashcard-label">RESPUESTA</div>
+          <div class="flashcard-text" id="fc-back-text"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button class="btn btn-secondary" onclick="prevCard()">← Anterior</button>
+      <span id="fc-counter" style="font-family:var(--mono);font-size:13px;color:var(--text3)">1 / 36</span>
+      <button class="btn btn-secondary" onclick="nextCard()">Siguiente →</button>
+      <button class="btn btn-secondary" onclick="shuffleCards()">🔀 Barajar</button>
+    </div>
+
+    <div style="margin-top:16px">
+      <div class="progress-bar" style="max-width:400px;margin:0 auto 12px">
+        <div class="progress-fill" id="fc-progress" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;gap:10px;margin-top:8px;flex-wrap:wrap;">
+      <span style="font-size:12px;color:var(--text3);align-self:center">Filtrar por tema:</span>
+      <button class="btn btn-secondary" style="padding:5px 14px;font-size:12px" onclick="filterFlashcards('all')">Todos</button>
+      <button class="btn btn-secondary" style="padding:5px 14px;font-size:12px" onclick="filterFlashcards('t1')">Tema 1</button>
+      <button class="btn btn-secondary" style="padding:5px 14px;font-size:12px" onclick="filterFlashcards('t2atm')">Atmósfera</button>
+      <button class="btn btn-secondary" style="padding:5px 14px;font-size:12px" onclick="filterFlashcards('t2agua')">Agua</button>
+      <button class="btn btn-secondary" style="padding:5px 14px;font-size:12px" onclick="filterFlashcards('t2res')">Residuos</button>
+    </div>
+  </div>
+
+  <div class="card card-accent">
+    <h2>Atajos de teclado</h2>
+    <div class="grid-3">
+      <div class="mini-card"><div class="label">← Flecha izquierda</div><div class="desc">Tarjeta anterior</div></div>
+      <div class="mini-card"><div class="label">→ Flecha derecha</div><div class="desc">Tarjeta siguiente</div></div>
+      <div class="mini-card"><div class="label">Espacio</div><div class="desc">Voltear la tarjeta</div></div>
+    </div>
+  </div>
+</main>
+
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
+
+<script>
+const allFlashcards = [
+  // TEMA 1
+  {t:'t1', q:'¿Cuál es la definición canónica de Desarrollo Sostenible?', a:'Aquel desarrollo que satisface las necesidades actuales sin comprometer la capacidad de las generaciones futuras para satisfacer sus propias necesidades. (Informe Brundtland, 1987)'},
+  {t:'t1', q:'¿En qué año y lugar se dio la 1ª definición de Medio Ambiente?', a:'En 1972, en la Conferencia de las Naciones Unidas (UNEP) en Estocolmo.'},
+  {t:'t1', q:'¿Cuántos ODS existen y cuándo se establecieron?', a:'17 Objetivos de Desarrollo Sostenible. Se establecieron el 25 de septiembre de 2015 en la ONU, con horizonte de cumplimiento en 2030.'},
+  {t:'t1', q:'¿Qué es la Cumbre de Río y qué documentos generó?', a:'La 1ª COP (1992) en Río de Janeiro. Generó: Declaración de Río, Agenda 21, Convenio sobre Diversidad Biológica y Convenio Marco sobre Cambio Climático.'},
+  {t:'t1', q:'¿Cuáles son las 5 categorías de acción de la Administración en materia medioambiental?', a:'1. Castigo (leyes e impuestos) 2. Premio (ayudas y subvenciones) 3. Persuasión (educación cívica) 4. Participación en el mercado (compras responsables) 5. Inacción vigilante.'},
+  {t:'t1', q:'¿Qué contempla el concepto de Biosfera?', a:'La totalidad de las capas de la Tierra habitadas por seres vivos: Atmósfera (capa gaseosa), Hidrosfera (aguas superficiales y subterráneas) y Litosfera (suelos).'},
+  {t:'t1', q:'¿Qué es el ACV?', a:'Análisis de Ciclo de Vida. Proceso objetivo que evalúa las cargas ambientales asociadas a un producto/proceso/actividad, cuantificando uso de materia/energía y emisiones para determinar el impacto y diseñar estrategias de mejora.'},
+  {t:'t1', q:'¿Qué cuantifica la Huella de Carbono?', a:'Las emisiones de GEI expresadas como CO₂ equivalente, liberadas a la atmósfera por actividades cotidianas o comercialización de un producto a lo largo de su ciclo de vida.'},
+  {t:'t1', q:'¿Qué es el Protocolo de Kioto?', a:'Acuerdo de la III Conferencia NN.UU sobre el Cambio Climático (1997, Japón) que busca reducir la carbonización y la emisión de gases de efecto invernadero.'},
+  {t:'t1', q:'¿Qué problemas ambientales son de tipo global y largo plazo?', a:'Pérdida de biodiversidad, efecto invernadero y destrucción de la capa de ozono.'},
+  // TEMA 2 - ATM
+  {t:'t2atm', q:'¿Cuál es la diferencia entre contaminante primario y secundario?', a:'Primario: emitido directamente a la atmósfera (ej: CO₂ de coches). Secundario: no se emite directamente, se forma en la atmósfera por transformaciones químicas o fotoquímicas (ej: NO₂ formado a partir de NO).'},
+  {t:'t2atm', q:'¿Qué es la emisión y qué es la inmisión?', a:'EMISIÓN: velocidad a la que es emitido un contaminante por una fuente (masa/tiempo). INMISIÓN: concentración de contaminantes en la atmósfera a nivel del suelo tras ser dispersados. Se asocia con la normativa de calidad del aire.'},
+  {t:'t2atm', q:'¿Cuáles son las 3 medidas de control de la calidad del aire?', a:'a) Prevención (antes del proceso) b) Medidas primarias (modificar el proceso para no generar contaminante) c) Medidas secundarias (depurar gases antes de emitirlos).'},
+  {t:'t2atm', q:'¿Cuál es el requisito principal de los precipitadores electrostáticos?', a:'La corriente gaseosa debe contener gases ionizantes: H₂O, CO₂, SO₂ y/o O₂. Con que lleve uno de estos gases es suficiente.'},
+  {t:'t2atm', q:'¿Por qué los multiciclones son más eficientes que los ciclones simples?', a:'Porque a menor diámetro del ciclón, mayor aceleración radial y mayor eficiencia. Los multiciclones combinan varios ciclones pequeños en paralelo, aumentando el caudal sin perder eficiencia.'},
+  {t:'t2atm', q:'¿Qué es la "torta" en un filtro de mangas?', a:'La capa de polvo acumulada sobre el material filtrante. Es la VERDADERA responsable del proceso de filtración, ya que actúa como filtro adicional. Se limpia periódicamente para controlar la resistencia al flujo.'},
+  {t:'t2atm', q:'¿En qué consiste el proceso de adsorción y qué diferencia tiene con la absorción?', a:'ABSORCIÓN: un líquido absorbe un gas (interacción gas-líquido). ADSORCIÓN: un sólido retiene un gas por tensión superficial o fuerzas electrostáticas (interacción gas-sólido). El carbón activo es el adsorbente más eficiente.'},
+  {t:'t2atm', q:'¿Qué temperaturas puede manejar un filtro de mangas de material cerámico?', a:'Hasta 800°C. Además tiene resistencia química a bases y ácidos.'},
+  {t:'t2atm', q:'¿Cuál es el problema principal del método de absorción?', a:'Genera aguas residuales contaminadas → convierte un problema de contaminación del aire en un problema de contaminación del agua.'},
+  {t:'t2atm', q:'¿Qué es el contaminante SO₂ y qué genera?', a:'Es un contaminante primario local que provoca lluvia ácida y smog sulfuroso. Se origina principalmente en la combustión de combustibles fósiles con azufre.'},
+  // TEMA 2 - AGUA
+  {t:'t2agua', q:'¿Qué es la eutrofización?', a:'Crecimiento excesivo de algas y otras plantas acuáticas provocado por exceso de nutrientes (N y P). La materia orgánica en descomposición consume O₂, lo que deteriora la calidad del agua y puede asfixiar la vida acuática.'},
+  {t:'t2agua', q:'¿Cuál es la diferencia entre DBO₅ y DQO?', a:'DBO₅: cantidad de O₂ que necesitan las bacterias aerobias para oxidar la materia orgánica BIODEGRADABLE en 5 días. DQO: cantidad de O₂ para oxidar por medios QUÍMICOS todo lo oxidable (biodegradable y no biodegradable).'},
+  {t:'t2agua', q:'¿Qué indica la relación DBO/DQO?', a:'DBO/DQO > 0,5: predominio de materia orgánica biodegradable (agua tratable biológicamente). DBO/DQO < 0,2: predominio de contaminantes inorgánicos no biodegradables (agua poco biodegradable).'},
+  {t:'t2agua', q:'¿Por qué las mareas negras son tan dañinas?', a:'La película de grasa evita completamente la fotosíntesis, rompe el equilibrio gaseoso, mata organismos por ahogamiento (sin intercambio de gases), mata algas (no pasa la luz) y envenena las cadenas tróficas.'},
+  {t:'t2agua', q:'¿Cuál es la fuente de contaminación de mayor impacto en el agua y por qué?', a:'La industrial, por la variedad de contaminantes que puede contener: metales pesados, cambios de pH/T, radiactividad, aceites y grasas.'},
+  {t:'t2agua', q:'¿Qué son las tecnologías blandas de depuración?', a:'Tecnologías naturales aplicables a vertidos totalmente degradables sin componente industrial, para núcleos de menos de 15.000 hab. Son extensivas (ocupan más superficie), más baratas, sin impacto visual, pero más lentas.'},
+  {t:'t2agua', q:'¿Qué ocurre cuando aumenta la temperatura del agua?', a:'↓ Solubilidad del O₂ → menos O₂ disponible. También: ↑ velocidad de reacciones químicas, ↓ tensión superficial, ↑ desarrollo de microorganismos.'},
+  {t:'t2agua', q:'¿Qué es la bioacumulación?', a:'El proceso por el que los metales pesados (como el Hg, Pb, Cd) se acumulan en los organismos (el cuerpo humano no puede eliminarlos) y se van concentrando a lo largo de la cadena trófica.'},
+  // TEMA 2 - RESIDUOS
+  {t:'t2res', q:'¿Qué es el principio 3RVE?', a:'Establece el orden jerárquico para la gestión de residuos: Reducir, Reutilizar, Reciclar (3R) → Valorizar (V) → Eliminar (E). De mejor a peor opción.'},
+  {t:'t2res', q:'¿Cuál es la fórmula de la Fracción Biodegradable (FB)?', a:'FB = 0,83 − 0,028 · CL (donde CL es el contenido de lignina). La lignina ralentiza la degradabilidad. Si tiene mucha lignina, no se lleva a biodegradación.'},
+  {t:'t2res', q:'¿Cuándo se aplica compostaje y cuándo biometanización?', a:'COMPOSTAJE: alto FB, no tóxicos, buena relación C/N, 60% de agua (aeróbico). BIOMETANIZACIÓN: bajo FB, humedad (anaeróbico). Si hay demasiada agua, el O₂ no puede pasar y se aplica biometanización.'},
+  {t:'t2res', q:'¿Qué son los Sistemas Integrados de Gestión (SIG)?', a:'Plataformas financiadas por las empresas productoras (por responsabilidad ampliada del productor) que se encargan de la recogida, transporte, almacenamiento y reciclado de productos al final de su vida útil. Ej: ECOEMBES, ECOVIDRIO, SIGRE.'},
+  {t:'t2res', q:'¿Qué es un residuo inerte y cuál es su gestión?', a:'Residuo que no sufre ningún tipo de reacción o transformación. No soluble, no combustible, no reactivo, no biodegradable. Gestión: deposición en vertedero para inertes.'},
+  {t:'t2res', q:'¿Qué diferencia hay entre reciclado 2º y reciclado 3º?', a:'Reciclado 2º (mecánico/físico): solo transformación física; el mismo material entra y sale. Reciclado 3º (químico): solo para polímeros; implica reacción química; lo que entra es diferente a lo que sale (se obtiene el monómero).'},
+  {t:'t2res', q:'¿Qué es la economía circular?', a:'Modelo que cierra el ciclo de los materiales: materia prima → diseño → producción → distribución → consumo/uso/reuso → recolección → reciclar → vuelta a materia prima. Se opone a la economía lineal (producir-consumir-tirar).'},
+  {t:'t2res', q:'¿Qué dice la Ley 7/2022 sobre los residuos?', a:'Un residuo es cualquier sustancia u objeto que su poseedor deseche o tenga intención/obligación de desechar. Introduce el concepto de economía circular y el término subproducto.'},
+  {t:'t2res', q:'¿Para qué sirven los tratamientos térmicos en residuos?', a:'Para obtener energía antes de llevarlos al vertedero y para reducir el volumen que ocupan. Incluyen incineración (oxidación controlada con exceso O₂), pirólisis (sin O₂) y gasificación (normal o con plasma).'},
+];
+
+let currentFlashcards = [...allFlashcards];
+let currentCardIndex = 0;
+
+function filterFlashcards(tema) {
+  if (tema === 'all') currentFlashcards = [...allFlashcards];
+  else currentFlashcards = allFlashcards.filter(f => f.t === tema);
+  currentCardIndex = 0;
+  showCard();
+}
+
+function showCard() {
+  const card = currentFlashcards[currentCardIndex];
+  document.getElementById('fc-front-text').textContent = card.q;
+  document.getElementById('fc-back-text').textContent = card.a;
+  document.getElementById('fc-counter').textContent = `${currentCardIndex + 1} / ${currentFlashcards.length}`;
+  document.getElementById('flashcard').classList.remove('flipped');
+  const pct = ((currentCardIndex + 1) / currentFlashcards.length) * 100;
+  document.getElementById('fc-progress').style.width = pct + '%';
+}
+
+function flipCard() {
+  document.getElementById('flashcard').classList.toggle('flipped');
+}
+
+function nextCard() {
+  currentCardIndex = (currentCardIndex + 1) % currentFlashcards.length;
+  showCard();
+}
+
+function prevCard() {
+  currentCardIndex = (currentCardIndex - 1 + currentFlashcards.length) % currentFlashcards.length;
+  showCard();
+}
+
+function shuffleCards() {
+  for (let i = currentFlashcards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [currentFlashcards[i], currentFlashcards[j]] = [currentFlashcards[j], currentFlashcards[i]];
+  }
+  currentCardIndex = 0;
+  showCard();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') nextCard();
+  else if (e.key === 'ArrowLeft') prevCard();
+  else if (e.key === ' ') { e.preventDefault(); flipCard(); }
+});
+
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+  document.getElementById('back-to-top').classList.toggle('visible', doc.scrollTop > 300);
+});
+
+window.addEventListener('DOMContentLoaded', () => showCard());
+</script>
+</body>
+</html>

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teoría — Medio Ambiente</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div class="hero">
+  <div class="hero-badge">Ciencias Ambientales · Grado</div>
+  <h1>Medio <span>Ambiente</span><br>Guía Interactiva</h1>
+  <p>Todo el contenido de Tema 1 y Tema 2 — con ejercicios, flashcards, tests y generador de preguntas con IA.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">2</span><span class="lbl">Temas</span></div>
+    <div class="hero-stat"><span class="num">80+</span><span class="lbl">Conceptos clave</span></div>
+    <div class="hero-stat"><span class="num">60+</span><span class="lbl">Preguntas banco</span></div>
+    <div class="hero-stat"><span class="num">∞</span><span class="lbl">Preguntas IA</span></div>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-link">🏠 Inicio</a>
+  <a href="teoria.html" class="nav-link active">📗 Teoría</a>
+  <a href="flashcards.html" class="nav-link">🃏 Flashcards</a>
+  <a href="test.html" class="nav-link">🎯 Test</a>
+  <a href="banco.html" class="nav-link">📦 Banco</a>
+  <a href="casos-practicos.html" class="nav-link">🔬 Casos Prácticos</a>
+  <a href="ia.html" class="nav-link">🤖 IA</a>
+</nav>
+
+<nav class="theory-subnav" id="theory-tabs">
+  <button class="nav-btn active" onclick="switchTab('tema1')">📗 Tema 1: Intro</button>
+  <button class="nav-btn" onclick="switchTab('tema2-atm')">💨 T2: Atmósfera</button>
+  <button class="nav-btn" onclick="switchTab('tema2-agua')">💧 T2: Agua</button>
+  <button class="nav-btn" onclick="switchTab('tema2-residuos')">♻️ T2: Residuos</button>
+</nav>
+
+<main>
+
+<!-- ============================================================
+     TEMA 1: INTRODUCCIÓN AL MEDIO AMBIENTE
+     ============================================================ -->
+<div id="tema1" class="section active">
+  <p class="section-subtitle">Tema 1</p>
+  <h1 class="section-title">Introducción al Estudio del Medio Ambiente</h1>
+
+  <!-- 1. DESARROLLO SOSTENIBLE -->
+  <div class="card card-accent">
+    <h2>1. Desarrollo Sostenible</h2>
+    <p>La segunda mitad del siglo XX trajo una explosión de crecimiento económico y globalización, pero sin considerar el impacto sobre el planeta. Esto generó grandes problemas ambientales globales:</p>
+    <div class="contaminant-grid">
+      <div class="contaminant-card">
+        <div class="contaminant-icon">🌡️</div>
+        <div class="contaminant-name">Cambio Climático</div>
+        <div class="contaminant-desc">Aumento de temperatura de 1 a 3,5°C</div>
+      </div>
+      <div class="contaminant-card">
+        <div class="contaminant-icon">🦋</div>
+        <div class="contaminant-name">Biodiversidad</div>
+        <div class="contaminant-desc">11.165 especies en peligro de extinción</div>
+      </div>
+      <div class="contaminant-card">
+        <div class="contaminant-icon">☀️</div>
+        <div class="contaminant-name">Capa de Ozono</div>
+        <div class="contaminant-desc">Disminución del 2 a 3% anual del espesor</div>
+      </div>
+      <div class="contaminant-card">
+        <div class="contaminant-icon">🌵</div>
+        <div class="contaminant-name">Desertización</div>
+        <div class="contaminant-desc">Deforestación de 15 millones de has en los 80</div>
+      </div>
+      <div class="contaminant-card">
+        <div class="contaminant-icon">🌧️</div>
+        <div class="contaminant-name">Lluvia Ácida</div>
+        <div class="contaminant-desc">Acidificación de ecosistemas acuáticos y terrestres</div>
+      </div>
+    </div>
+
+    <div class="highlight-red">
+      <strong>Ejemplos de catástrofes:</strong> Vertidos petrolíferos Erika, Exxon Valdez, Prestige · Contaminación por mercurio en bahía Minamata (bioacumulable) · Accidentes Fukushima, Bhopal, Seveso, Aznalcóllar
+    </div>
+
+    <h3>1.1 Cronología Internacional</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">1971</div>
+        <div class="timeline-text">Crisis del petróleo.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1972</div>
+        <div class="timeline-text">Informe del Club de Roma: <em>Limits to Growth</em>. Conferencia NN.UU (UNEP) en Estocolmo → <strong>1ª definición de Medio Ambiente</strong>.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1980</div>
+        <div class="timeline-text">Estrategia para la conservación del Planeta (UNEP) → definición de Desarrollo Sostenible.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1987</div>
+        <div class="timeline-text"><strong>Informe Brundtland</strong>. Protocolo de Montreal → inicio del estudio formal del desarrollo sostenible.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1990</div>
+        <div class="timeline-text">Formación del World Business Council on Sustainable Development (WBCSD).</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1992</div>
+        <div class="timeline-text"><strong>Cumbre de Río</strong> (1ª COP). Declaración de Río + Agenda 21. Convenio sobre Diversidad Biológica + Convenio Marco sobre Cambio Climático.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1997</div>
+        <div class="timeline-text">III Conferencia NN.UU sobre Cambio Climático. <strong>Protocolo de Kioto</strong> (Japón) → reducir carbonización y emisión de GEI.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2002</div>
+        <div class="timeline-text">Conferencia de Johannesburgo (Cumbre de la Tierra Río+10). Las conclusiones no son optimistas.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2015</div>
+        <div class="timeline-text">Cumbre NN.UU sobre Desarrollo Sostenible → <strong>Agenda 2030</strong> y los <strong>17 ODS</strong>.</div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <h3>1.2 Definición de Desarrollo Sostenible</h3>
+    <div class="def-box">
+      <div class="def-term">Definición canónica — Informe Brundtland (1987)</div>
+      <div class="def-text">"Aquel desarrollo que <strong>satisface las necesidades actuales</strong> sin comprometer la capacidad de las generaciones futuras para satisfacer sus propias necesidades."</div>
+    </div>
+    <p>El desarrollo económico no puede seguir a costa de dilapidar el patrimonio natural. Es preciso cambiar el modelo de desarrollo económico.</p>
+
+    <h3>1.3 ODS — Objetivos de Desarrollo Sostenible</h3>
+    <p>Establecidos el <strong>25 de septiembre de 2015</strong> en la ONU. Son <strong>17 objetivos globales</strong> para 2030 que buscan erradicar la pobreza, proteger el planeta y asegurar la prosperidad. Cada objetivo tiene metas específicas.</p>
+    <div class="highlight">
+      <strong>Cadena jerárquica:</strong> La ONU propone → Europa marca directrices → Países miembros están obligados a cumplirlas mediante legislación nacional.
+    </div>
+
+    <h3>1.4 Propuesta de la ONU hoy</h3>
+    <div class="grid-2">
+      <div class="mini-card">
+        <div class="label">Principio</div>
+        <div class="desc">La Economía al servicio de la Sociedad, para luchar contra desigualdades sociales</div>
+      </div>
+      <div class="mini-card">
+        <div class="label">Marco</div>
+        <div class="desc">Economía y Sociedad dentro del mismo arco de cuidado del Medio Ambiente</div>
+      </div>
+    </div>
+
+    <h4>Responsabilidad ciudadana:</h4>
+    <ul>
+      <li><strong>Conciencia ambiental:</strong> valorar la naturaleza y su importancia en la vida humana.</li>
+      <li><strong>Equidad global:</strong> el planeta no es propiedad de los sociosistemas más ricos.</li>
+      <li><strong>Consumo responsable:</strong> exigir productos y servicios con menos impacto ambiental y social.</li>
+      <li><strong>Participación activa:</strong> impulsar modelo económico sostenible mediante la política y la vida pública.</li>
+    </ul>
+
+    <h4>Acciones de la Administración (5 categorías):</h4>
+    <div class="grid-2">
+      <div class="mini-card"><div class="num">1</div><div class="label">El Castigo</div><div class="desc">Leyes e impuestos (ecotasas)</div></div>
+      <div class="mini-card"><div class="num">2</div><div class="label">El Premio</div><div class="desc">Ayudas y subvenciones a empresas con consciencia medioambiental</div></div>
+      <div class="mini-card"><div class="num">3</div><div class="label">La Persuasión</div><div class="desc">Inversión pública en formación, sensibilización y educación cívica</div></div>
+      <div class="mini-card"><div class="num">4</div><div class="label">Participación en el Mercado</div><div class="desc">La Administración compra productos respetuosos con el medio ambiente</div></div>
+      <div class="mini-card"><div class="num">5</div><div class="label">Inacción Vigilante</div><div class="desc">Dejar la protección al mercado; la Admin solo vigila espacios naturales de especial relevancia</div></div>
+    </div>
+
+    <h4>La industria produce 3 tipos de efectos:</h4>
+    <div class="flow">
+      <div class="flow-step">💰 Económicos (sueldos e impuestos)</div>
+      <div class="flow-arrow">·</div>
+      <div class="flow-step">👥 Sociales (productos, empleo)</div>
+      <div class="flow-arrow">·</div>
+      <div class="flow-step">🌱 Medioambientales (recursos + emisiones)</div>
+    </div>
+  </div>
+
+  <!-- 2. MEDIO AMBIENTE -->
+  <div class="card card-blue">
+    <h2>2. Medio Ambiente</h2>
+    <div class="def-box">
+      <div class="def-term">Definición — Conferencia de las Naciones Unidas, Estocolmo 1972 (1ª definición)</div>
+      <div class="def-text">Conjunto de factores <strong>físicos, químicos</strong> (energía del Sol, suelo, agua y aire), <strong>biológicos</strong> (organismos vivos) y <strong>sociales</strong> capaces de causar efectos directos o indirectos, en un plazo corto o largo, sobre los seres vivos y las actividades humanas.</div>
+    </div>
+
+    <p>Contempla la <strong>Biosfera</strong>: totalidad de las capas de la Tierra habitadas por seres vivos.</p>
+
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 2px solid var(--accent);">
+        <div class="contaminant-icon">🌫️</div>
+        <h4>Atmósfera</h4>
+        <div class="desc" style="font-size:12px;color:var(--text2)">Capa gaseosa. Sede de fenómenos climáticos. Contiene gases esenciales para la respiración. Intercambio de gases entre biosfera e hidrosfera.</div>
+      </div>
+      <div class="mini-card" style="border-top: 2px solid var(--accent);">
+        <div class="contaminant-icon">💧</div>
+        <h4>Hidrosfera</h4>
+        <div class="desc" style="font-size:12px;color:var(--text2)">Aguas superficiales y subterráneas: mares, ríos, acuíferos. Condicionante de ciclos naturales y vector de factores diversos.</div>
+      </div>
+      <div class="mini-card" style="border-top: 2px solid var(--gold);">
+        <div class="contaminant-icon">🌍</div>
+        <h4>Litosfera</h4>
+        <div class="desc" style="font-size:12px;color:var(--text2)">Suelos (estado, composición y alteraciones que se produzcan sobre ellos).</div>
+      </div>
+    </div>
+
+    <h3>2.1 Grandes Objetivos del Consenso Universal</h3>
+    <ul>
+      <li>Mantener la existencia de la especie humana</li>
+      <li>La capacidad de los sistemas para un desarrollo sostenible</li>
+      <li>La diversidad de las formas de vida</li>
+      <li>La riqueza estética del planeta</li>
+    </ul>
+
+    <h3>2.2 Tipos de Problemas Ambientales</h3>
+    <div class="grid-2">
+      <div class="card card-red" style="margin:0;">
+        <h4>🌍 Globales y largo plazo</h4>
+        <ul><li>Pérdida de biodiversidad</li><li>Efecto invernadero</li><li>Destrucción de ozono</li></ul>
+      </div>
+      <div class="card card-orange" style="margin:0;">
+        <h4>📍 Regionales y locales</h4>
+        <ul><li>Acidificación</li><li>Smog</li><li>Vertederos, derrames, olores</li></ul>
+      </div>
+    </div>
+
+    <h3>2.3 Niveles, Factores e Impactos Ambientales</h3>
+    <div class="flow">
+      <div class="flow-step">Emisiones (flujos de descarga)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Inmisión (transporte y destino)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Impactos (efectos en salud y ecosistemas)</div>
+    </div>
+
+    <h4>Categorías de análisis:</h4>
+    <ul>
+      <li><strong>Escala espacio-temporal:</strong> globales, regionales y locales</li>
+      <li><strong>Categorías bióticas:</strong> toxicidad en organismos vivos</li>
+      <li><strong>Categorías abióticas:</strong> cambio climático, capa de ozono, lluvia ácida, eutrofización…</li>
+      <li><strong>Sostenibilidad económica:</strong> consumo y agotamiento de recursos</li>
+    </ul>
+
+    <div class="sep"></div>
+
+    <h3>2.3.1 Análisis de Ciclo de Vida (ACV)</h3>
+    <div class="def-box">
+      <div class="def-term">ACV</div>
+      <div class="def-text">Proceso objetivo que permite <strong>evaluar las cargas ambientales</strong> asociadas a un producto, proceso o actividad, identificando y cuantificando tanto el uso de materia y energía como las emisiones al entorno, para determinar el impacto y llevar a la práctica estrategias de mejora ambiental.</div>
+    </div>
+    <div class="highlight">
+      Cualquier alternativa debe tener en cuenta el <strong>balance total de energía</strong>, desde la materia prima y su origen hasta su uso, considerando las emisiones totales a lo largo de todo el ciclo de vida.
+    </div>
+
+    <h3>2.3.2 Huella de Carbono</h3>
+    <div class="def-box">
+      <div class="def-term">Huella de Carbono</div>
+      <div class="def-text">Cuantifica las <strong>emisiones de GEI</strong> (expresadas como CO₂ equivalente) liberadas a la atmósfera debido a actividades cotidianas o a la comercialización de un producto a lo largo de su ciclo de vida. Proporciona información al consumidor para una elección más consciente.</div>
+    </div>
+
+    <h3>2.4 Normativa Medioambiental</h3>
+    <p>La <strong>Unión Europea</strong> establece directrices medioambientales de obligado cumplimiento que los países miembros deben convertir en leyes nacionales.</p>
+    <div class="flow">
+      <div class="flow-step">UE: directrices</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">País: transposición a ley</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Obligación de cumplimiento</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TEMA 2 — ATMÓSFERA
+     ============================================================ -->
+<div id="tema2-atm" class="section">
+  <p class="section-subtitle">Tema 2 · Sección 2.1 y 2.2</p>
+  <h1 class="section-title">Contaminación Atmosférica y Control de Emisiones</h1>
+
+  <div class="card card-accent">
+    <h2>1. La Atmósfera</h2>
+    <p>La atmósfera está constituida por varias capas. Las más importantes para la contaminación:</p>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>Troposfera (0–10 km)</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Primeros 10 km. Comprende la biosfera. En contacto con la superficie (Litosfera). Entre la troposfera y la estratosfera está la <strong>capa de ozono (O₃)</strong>. El ozono absorbe la radiación UV y se descompone en O₂ + O (ciclo cerrado): <code>O₃(g) → O₂ + O</code>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>Estratosfera</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          La temperatura <strong>aumenta con la altitud</strong> porque los rayos UV transforman el O₂ en ozono, el cual los absorbe calentándose e impidiendo que los rayos pasen a la superficie terrestre. Nos protege de la radiación UV (solo llega UV-A y UV-B).
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>Hueco en la capa de ozono</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          La emisión de compuestos químicos (CFC) reacciona con el ozono y provoca su destrucción. Si la radiación UV llegara íntegra a la Tierra, no podría haber vida. Los CFC se consideran <strong>contaminantes globales</strong> (afectan a todo el planeta), no locales.
+        </div>
+      </div>
+    </div>
+
+    <h2>2. Contaminación Atmosférica</h2>
+    <div class="def-box">
+      <div class="def-term">Definición — Directiva 2024/2881</div>
+      <div class="def-text">Introducción directa/indirecta, por efecto de la actividad humana, de sustancias o energía en el aire ambiente que <strong>alteran su composición y tienen efectos nocivos</strong> sobre salud humana, medio ambiente y bienes materiales.</div>
+    </div>
+
+    <div class="highlight-gold">
+      <strong>Importante:</strong> Los gases de efecto invernadero (GEI) y los CFC <u>no se engloban</u> dentro del término "contaminación atmosférica" ya que se consideran contaminantes <strong>globales</strong>.
+    </div>
+
+    <h4>Unidades de concentración:</h4>
+    <span class="formula">mg/m³, μg/m³ (indicar P y T) | % ppm (partes por millón) | ppb (partes por billón)</span>
+    <p style="font-size:13px">Para convertir entre unidades masa/volumen y volumen/volumen se usa la <strong>ecuación de los gases ideales: P·V = n·R·T</strong></p>
+
+    <h3>2.1 Clasificación de Contaminantes Atmosféricos</h3>
+    <div class="def-box">
+      <div class="def-term">Contaminantes Primarios</div>
+      <div class="def-text">Sustancias vertidas <strong>directamente</strong> a la atmósfera por la fuente de emisión. Permanecen tal como fueron emitidos. Ej: CO₂ de coches o chimeneas industriales.</div>
+    </div>
+    <div class="def-box">
+      <div class="def-term">Contaminantes Secundarios</div>
+      <div class="def-text">No se emiten directamente. Se forman en la atmósfera a través de <strong>transformaciones químicas y fotoquímicas</strong> de contaminantes primarios entre sí o con constituyentes naturales. Ej: NO₂ se forma a partir de NO.</div>
+    </div>
+
+    <h4>Tabla de contaminantes por tipo:</h4>
+    <table>
+      <thead>
+        <tr><th>Tipo</th><th>Contaminante Primario</th><th>Contaminante Secundario</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Compuestos de S</td><td>SOx</td><td>SO₃, H₂SO₄ (lluvia ácida)</td></tr>
+        <tr><td>Compuestos de N</td><td>NOx, NH₃</td><td>NO₂ (sistemas de automoción)</td></tr>
+        <tr><td>Compuestos org. de C</td><td>CO, Hidrocarburos, COVs: CH₄</td><td>Compuestos volátiles</td></tr>
+        <tr><td>Partículas</td><td>Sólidas, líquidas o mixtas</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2.2 Etapas del Proceso de Contaminación</h3>
+    <div class="flow">
+      <div class="flow-step">1. EMISIÓN</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">2. Dispersión + Transporte + Transformación</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">3. INMISIÓN (deposición)</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="def-box">
+        <div class="def-term">Nivel de EMISIÓN</div>
+        <div class="def-text">Velocidad a la que es emitido un contaminante por una fuente (masa contaminante/tiempo). <strong>Se controla con legislación de emisiones.</strong></div>
+      </div>
+      <div class="def-box">
+        <div class="def-term">Nivel de INMISIÓN</div>
+        <div class="def-text">Concentración de contaminantes en la atmósfera <strong>a nivel del suelo</strong>, después de ser dispersado. Se asocia con la normativa de calidad del aire.</div>
+      </div>
+    </div>
+
+    <div class="highlight-gold">
+      <strong>Catástrofes atmosféricas históricas:</strong> Valle del Meuse (Bélgica 1930): contaminación industrial + inversión térmica · Donora, Pennsylvania (EE.UU. 1948) · Londres (1952): "El gran smog de Londres", emisiones domésticas de calefacción.
+    </div>
+  </div>
+
+  <!-- TÉCNICAS DE CONTROL -->
+  <div class="card card-blue">
+    <h2>3. Técnicas de Control de Contaminación Atmosférica</h2>
+    <p>Existen <strong>3 medidas</strong> de control de la calidad del aire:</p>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>a) Prevención de la Contaminación (antes del proceso)</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Medidas aplicadas <strong>antes de ejecutarse el proceso productivo</strong> con el fin de reducir emisiones por cambio de procesos o materias primas. Es lo más recomendable, eficaz y barato.<br><br>
+          <em>Ejemplo:</em> El N₂ reacciona a T&gt;1300°C. Si en la combustión se consigue T &lt; 1300°C, se evita la formación de NOx → <strong>medida primaria</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>b) Medidas Primarias de Control (modificar el proceso)</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Modificar el proceso para <strong>evitar la formación</strong> del contaminante, modificando procesos (quemadores, combustibles). Son medidas integradas en los procesos que generan contaminación.<br><br>
+          <strong>Objetivos:</strong> disminuir NOx y SO₂ modificando la combustión convencional y la combustión en lechos fluidizados.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>c) Medidas Secundarias de Control (depurar los gases)</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Procesos para <strong>depurar gases antes de que salgan a la atmósfera</strong> (tecnologías caras).<br><br>
+          1. Mejora de la dispersión → ej: altura de chimeneas (arriba hay más corrientes de aire → la contaminación se dispersa más)<br>
+          2. Poner elementos que retengan contaminantes aguas abajo (antes de la salida).
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+    <h2>3.1 Técnicas para Partículas</h2>
+    <div class="contaminant-grid">
+      <div class="contaminant-card"><div class="contaminant-name">d &gt; 10 μm</div><div class="contaminant-desc">Sedimentan por gravedad</div></div>
+      <div class="contaminant-card"><div class="contaminant-name">PM10 (2,5–10 μm)</div><div class="contaminant-desc">Penetran en los pulmones</div></div>
+      <div class="contaminant-card"><div class="contaminant-name">PM2,5 (&lt; 2,5 μm)</div><div class="contaminant-desc">En atmósfera como gas</div></div>
+      <div class="contaminant-card" style="border: 1px solid rgba(248,113,113,0.4);">
+        <div class="contaminant-name" style="color:var(--red)">UFP PM0,1 (&lt; 0,1 μm)</div>
+        <div class="contaminant-desc">Penetran en pulmones y son tóxicas</div>
+      </div>
+    </div>
+
+    <p><strong>Marco teórico base:</strong> <em>Ley de Stokes</em> → describe el movimiento de objetos esféricos en un fluido.</p>
+
+    <h3>Tabla comparativa de técnicas de control de partículas</h3>
+    <table>
+      <thead>
+        <tr><th>Técnica</th><th>Tamaño mín.</th><th>Tipo corriente</th><th>Función</th><th>Eficiencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Cámaras de sedimentación</strong></td><td>≥ 50 μm</td><td>Seca, alta T</td><td>Pretratamiento</td><td>~50%</td></tr>
+        <tr><td><strong>Ciclones</strong></td><td>≥ 10 μm</td><td>Seca</td><td>Pretratamiento</td><td>&gt;90% para d≥10μm</td></tr>
+        <tr><td><strong>Multiciclones</strong></td><td>≥ 5 μm</td><td>Seca</td><td>Medida secundaria</td><td>Alta</td></tr>
+        <tr><td><strong>Filtros de mangas</strong></td><td>≥ 0,1 μm</td><td>Solo seca</td><td>Medida secundaria</td><td>99%</td></tr>
+        <tr><td><strong>Precipitadores electrostáticos</strong></td><td>0,05–200 μm</td><td>Seca + gases ionizantes</td><td>Medida secundaria</td><td>90–99%</td></tr>
+        <tr><td><strong>Lavadores húmedos</strong></td><td>≥ 0,5 μm (Venturi: ≥ 2μm)</td><td>Húmeda, corrosiva, alta T</td><td>Medida secundaria</td><td>hasta 99%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🏠 Cámaras de sedimentación</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <span class="tag tag-gold">PRETRATAMIENTO</span><span class="tag">d ≥ 50 μm</span><span class="tag">Seca</span><span class="tag">hasta 1000°C</span><br><br>
+          Dispositivo alargado en el sistema de escape. Aprovecha la <strong>gravedad</strong>. El fluido entra a alta velocidad por conductos estrechos y entra en una cámara donde <strong>se reduce la velocidad al aumentar la sección</strong>, dando tiempo a que las partículas sedimenten.<br><br>
+          A veces se permite entrada de aire frío para generar aglomerados de mayor peso. Eficacia: ~50%. Uso: predepuración en fábricas de cal y yeso.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🌀 Ciclones / Multiciclones</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <span class="tag tag-gold">PRETRATAMIENTO</span><span class="tag">Ciclón: d ≥ 10 μm</span><span class="tag">Multiciclón: d ≥ 5 μm</span><br><br>
+          Cámara cilíndrica de acero con parte inferior troncocónica. Aplica <strong>fuerza centrífuga</strong> al gas con partículas. El flujo de aire sucio entra <strong>de forma tangencial</strong> generando un movimiento helicoidal descendente. Las partículas pesadas salen contra las paredes, caen y se recogen en seco.<br><br>
+          <strong>A menor diámetro del ciclón → mayor eficiencia</strong> (mayor aceleración radial). Los multiciclones ponen varios ciclones pequeños en paralelo.<br><br>
+          <em>En serie:</em> mayor eficiencia | <em>En paralelo:</em> mayor capacidad volumétrica<br><br>
+          Usos: hornos de cemento, siderurgias, fundiciones, industria química.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🧦 Filtros de Mangas</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <span class="tag tag-blue">MEDIDA SECUNDARIA</span><span class="tag">d ≥ 0,1 μm</span><span class="tag tag-red">SOLO SECO</span><span class="tag">Ta &lt; 260°C</span><br><br>
+          Serie de bolsas (mangas de fibra sintética o natural) en soportes. El gas pasa por el tejido filtrante donde queda atrapada la partícula.<br><br>
+          <strong>La TORTA</strong> (capa de polvo acumulada) es la verdadera responsable del proceso de filtración. Limpieza periódica: sacudidas, inversión del flujo o pulsos de aire.<br><br>
+          Eficiencia: <strong>99%</strong>. Materiales: Algodón (hasta 80°C), Cerámico refractario (hasta 800°C, resistente a ácidos y bases).<br>
+          Usos: cemento, yeso, cerámica, caucho, química, petroquímica.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>⚡ Precipitadores Electrostáticos (ESP)</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <span class="tag tag-blue">MEDIDA SECUNDARIA</span><span class="tag">d: 0,05–200 μm</span><span class="tag tag-red">EL MÁS CARO</span><br><br>
+          <strong>REQUISITO:</strong> la corriente debe llevar gases ionizantes: H₂O, CO₂, SO₂ y/o O₂ (basta con uno).<br><br>
+          <strong>Etapas:</strong><br>
+          1. <em>Efecto corona:</em> descarga eléctrica elevada → ionización de moléculas de gas ionizantes<br>
+          2. <em>Ionización de partículas:</em> los gases ionizados se desplazan hacia el electrodo colector (positivo) y al chocar con las partículas les transmiten carga negativa<br>
+          3. <em>Depósito:</em> las partículas cargadas negativamente se adhieren al electrodo colector; se eliminan por vibración, caen en una tolva.<br><br>
+          Puede manejar gases calientes (hasta 700°C) y húmedos (H₂O es ionizante).<br>
+          Usos: altas eficiencias (90-99%), grandes flujos, bajas pérdidas de presión.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>💦 Lavadores Húmedos (Scrubbers)</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <span class="tag tag-blue">ABSORCIÓN (líquido absorbe sólido)</span><br><br>
+          Se usan cuando la materia es húmeda, corrosiva o muy caliente. Utilizan un líquido de lavado que discurre en sentido <strong>opuesto al gas</strong>. Genera <strong>agua residual contaminada</strong> que debe ser tratada.<br><br>
+          Tipos:
+          <ul>
+            <li><strong>Cámaras de rociado:</strong> d &gt; 10 μm, hasta 99%</li>
+            <li><strong>Ciclónicos:</strong> d &gt; 2,5 μm, hasta 80%</li>
+            <li><strong>Venturi:</strong> d &gt; 2 μm, alta eficiencia, exclusivo para partículas por absorción.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROL GASES -->
+  <div class="card card-gold">
+    <h2>3.2 Técnicas de Control de Gases (SO₂, NOx, COVs)</h2>
+
+    <h3>Absorción (gases en líquido)</h3>
+    <div class="def-box">
+      <div class="def-term">ABSORCIÓN</div>
+      <div class="def-text">Proceso por el que un <strong>líquido absorbe un gas</strong>. Interacción química gas-líquido. El gas debe ser soluble en el líquido. Eficiencia: ~95%.</div>
+    </div>
+    <p>Absorbentes comunes: <strong>Agua</strong> (NH₃, SO₂, Cl₂ y COVs solubles) · <strong>Alcanolaminas</strong> (para H₂S y CO₂)</p>
+    <p><strong>⚠️ Problema:</strong> genera aguas residuales → convierte problema del aire en problema del agua.</p>
+
+    <h4>3 tipos de torres de absorción (todas a contracorriente: agua cae por arriba, gas entra por abajo):</h4>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-name">Torre de Relleno</div>
+        <div class="tech-row"><span class="tech-key">Eficiencia</span><span class="tech-val">La más alta</span></div>
+        <div class="tech-row"><span class="tech-key">Relleno</span><span class="tech-val">Arcilla, porcelana, plásticos inertes</span></div>
+        <div class="tech-row"><span class="tech-key">Costo</span><span class="tech-val">El más caro</span></div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-name">Torre de Rociado</div>
+        <div class="tech-row"><span class="tech-key">Mecanismo</span><span class="tech-val">Atomiza líquido desde arriba</span></div>
+        <div class="tech-row"><span class="tech-key">Eficiencia</span><span class="tech-val">Media-baja</span></div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-name">Torre Venturi</div>
+        <div class="tech-row"><span class="tech-key">Ventaja</span><span class="tech-val">Separa simultáneamente partículas</span></div>
+        <div class="tech-row"><span class="tech-key">Mecanismo</span><span class="tech-val">Constricción → ↑velocidad → mezcla</span></div>
+      </div>
+    </div>
+
+    <h3>Adsorción (gas en sólido)</h3>
+    <div class="def-box">
+      <div class="def-term">ADSORCIÓN</div>
+      <div class="def-text">Un <strong>sólido retiene el gas</strong> por fenómenos de tensión superficial o fuerzas electrostáticas. El adsorbente debe tener <strong>elevada porosidad y gran área superficial</strong>.</div>
+    </div>
+    <div class="highlight-gold">⚠️ TORRE DE ADSORCIÓN: NO apta para T&gt;30°C ni corrientes húmedas. SÍ apta a alta presión.</div>
+
+    <table>
+      <thead>
+        <tr><th>Material</th><th>Gas que adsorbe</th><th>Aplicación</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Carbón activo</strong></td><td>Hidrocarburos, COVs, disolventes</td><td>El más eficiente (95-99%). Nanoporoso.</td></tr>
+        <tr><td>Gel de sílice</td><td>Vapor de agua</td><td>Dessecante</td></tr>
+        <tr><td>Alúmina activada</td><td>Flúor</td><td>Ind. química</td></tr>
+        <tr><td>Zeolitas</td><td>H₂S, NH₂</td><td>Tamiz molecular</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Condensación</h3>
+    <p>Cada vez se usa menos (eficiencia muy variable/baja). Los componentes volátiles se separan por saturación seguida de cambio de fase gas–líquido, bien aumentando la presión o bien reduciendo la temperatura.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     TEMA 2 — AGUA
+     ============================================================ -->
+<div id="tema2-agua" class="section">
+  <p class="section-subtitle">Tema 2 · Sección 2.1 Control de Efluentes Acuosos</p>
+  <h1 class="section-title">Contaminación y Control del Agua</h1>
+
+  <div class="card card-blue">
+    <h2>1. Composición del Agua Natural</h2>
+    <p>El agua natural es incolora, inodora e insípida (puede variar según las sustancias presentes).</p>
+    <div class="grid-3">
+      <div class="mini-card"><h4>Sólidos</h4><div class="desc">Sales minerales disueltas, en suspensión o como coloides</div></div>
+      <div class="mini-card"><h4>Gases disueltos</h4><div class="desc">O₂, N₂, CO₂ (respiración), CH₄ y H₂S (descomposición de materia viva)</div></div>
+      <div class="mini-card"><h4>Microorganismos</h4><div class="desc">Bacterias, protozoos, virus, algas. Responsables de muchas reacciones en el agua.</div></div>
+    </div>
+    <div class="highlight">↑ Temperatura → ↓ Solubilidad de gases. Hay intercambio de gases entre hidrosfera, litosfera y atmósfera.</div>
+  </div>
+
+  <div class="card card-red">
+    <h2>2. Contaminación de las Aguas</h2>
+    <div class="def-box">
+      <div class="def-term">Definición — Carta del Agua, Consejo de Europa (1968)</div>
+      <div class="def-text">Presencia de contaminantes en las aguas superficiales o subterráneas en cantidad y tiempo suficiente para provocar una <strong>modificación de la calidad del agua</strong>, haciéndola impropia o peligrosa para el consumo humano, la industria, la agricultura, la pesca y las actividades recreativas, así como para los animales domésticos y la vida natural.</div>
+    </div>
+
+    <h3>2.1 Fuentes de Contaminación del Agua</h3>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🏠 Fuente Urbana</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          · <strong>AR negras (fecales):</strong> ricas en materia orgánica → contaminación bacteriológica.<br>
+          · <strong>AR grises:</strong> disolventes y otros productos químicos → compuestos inorgánicos.
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🛢️ Petróleo / Mareas Negras</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          La película de grasa <strong>evita completamente la fotosíntesis</strong> y rompe el equilibrio gaseoso.<br><br>
+          Consecuencias: muerte de organismos por ahogamiento (no hay intercambio de gases), muerte de algas, envenenamiento en cadenas tróficas.
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🌾 Fuente Agrícola</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Deriva del uso de <strong>biocidas, fertilizantes y abonos</strong> arrastrados con el agua de riego. Por <strong>lixiviación</strong> pueden contaminar aguas subterráneas.<br><br>
+          Los bionutrientes (N, P) sirven de comida a microorganismos → exceso de microorganismos → contaminación.
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🏭 Fuente Industrial (mayor impacto)</span><span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          La de <strong>mayor impacto</strong>, por la variedad de contaminantes: metales pesados, cambios de pH/T, radiactividad, aceites, grasas.<br><br>
+          Las industrias que usan agua de río con permisos deben reintegrarla <strong>en igual calidad y cantidad</strong>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-gold">
+    <h2>3. Tipos de Contaminantes del Agua</h2>
+    <h3>3.A Físicos</h3>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)"><span>🌡️ Temperatura</span><span class="accordion-icon">+</span></div>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        ↑ T → ↓ solubilidad O₂ → reducción del O₂ disponible.<br>
+        ↑ Cinética de reacciones químicas. ↓ Tensión superficial. ↑ Desarrollo de microorganismos.<br>
+        <strong>Causa:</strong> Empleo del agua como refrigerante en industrias y centrales eléctricas.
+      </div></div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)"><span>💫 Sólidos en Suspensión (SS/MES)</span><span class="accordion-icon">+</span></div>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        Aumento de la turbidez (afecta a la fotosíntesis). Modificación del olor y sabor. Alteraciones en las cadenas tróficas.<br>
+        <strong>Causas:</strong> erosión natural, explotaciones mineras, obras públicas, aguas residuales.
+      </div></div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)"><span>☢️ Partículas Radiactivas</span><span class="accordion-icon">+</span></div>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        Radiación α, β y γ de residuos nucleares. Los iones radiactivos se acumulan en el organismo → mutaciones o cáncer.
+      </div></div>
+    </div>
+
+    <h3>3.B Químicos</h3>
+    <h4>Inorgánicos:</h4>
+    <ul>
+      <li><strong>Bases y ácidos:</strong> variaciones de pH → afectan procesos biológicos y la corrosión</li>
+      <li><strong>Metales pesados</strong> (Hg, Pb, Cd): toxicidad, <strong>bioacumulación</strong> en cadenas tróficas</li>
+      <li><strong>Compuestos de N y P:</strong> → <strong>eutrofización</strong> (crecimiento excesivo de algas → consumo de O₂)</li>
+    </ul>
+    <h4>Orgánicos:</h4>
+    <ul>
+      <li><strong>Pesticidas:</strong> tóxicos, persistentes y bioacumulables</li>
+      <li><strong>Jabones y detergentes:</strong> espumas, consumen O₂, aportan fosfatos → eutrofización</li>
+      <li><strong>Grasas y aceites:</strong> impiden sedimentación y captación de O₂</li>
+    </ul>
+
+    <h3>3.C Biológicos</h3>
+    <div class="highlight-red">
+      Si <strong>E.coli &gt; 0</strong> → se activa protocolo de alerta sanitaria por contaminación fecal.<br><br>
+      <strong>Marea roja:</strong> proliferación masiva de microalgas tóxicas en el mar. Produce toxinas que se acumulan en moluscos bivalvos → intoxicaciones graves o mortales en humanos.
+    </div>
+  </div>
+
+  <div class="card card-accent">
+    <h2>7. Parámetros de Medición de Contaminantes</h2>
+    <table>
+      <thead>
+        <tr><th>Ensayo</th><th>Parámetro</th><th>Descripción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1º</td><td><strong>Sólidos en suspensión (SS)</strong></td><td>SS = m' - m. Filtro poro 1,2μm. Unidad: mg/L (ppm)</td></tr>
+        <tr><td>2º</td><td><strong>Dureza total</strong></td><td>Sales de Ca²⁺, Mg²⁺, Fe y Mn. Expresado en mg CaCO₃/L.</td></tr>
+        <tr><td>3º</td><td><strong>Salinidad</strong></td><td>g de sal/kg de agua. Total de materia inorgánica disuelta.</td></tr>
+        <tr><td>4º</td><td><strong>pH</strong></td><td>Rango adecuado: 6,5 – 7,5.</td></tr>
+        <tr><td>5º</td><td><strong>Oxígeno disuelto (OD)</strong></td><td>mg O₂/L. Imprescindible para la vida. ↑ T antrópica → ↓ OD.</td></tr>
+        <tr><td>6º</td><td><strong>NT y PT</strong></td><td>Nitrógeno total y Fósforo total → responsables de eutrofización.</td></tr>
+        <tr><td>7º</td><td><strong>DQO y DBO₅</strong></td><td>Demanda Química y Bioquímica de Oxígeno. Cuantifican materia orgánica.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sep"></div>
+    <h3>DBO₅ vs DQO (Examen importante)</h3>
+    <div class="grid-2">
+      <div class="def-box">
+        <div class="def-term">DBO₅ — Demanda Bioquímica de O₂ (5 días)</div>
+        <div class="def-text">Cantidad de O₂ (mg O₂/L) que necesitan las <strong>bacterias aerobias</strong> para oxidar toda la materia orgánica <strong>biodegradable</strong> presente en el agua. Mide solo lo biodegradable.</div>
+      </div>
+      <div class="def-box">
+        <div class="def-term">DQO — Demanda Química de O₂</div>
+        <div class="def-text">Cantidad de O₂ para oxidar la materia orgánica <strong>por medios químicos</strong> (dicromato potásico a 150°C / 120 min). Oxida todo lo oxidable, incluyendo materia no biodegradable.</div>
+      </div>
+    </div>
+
+    <div class="highlight-gold">
+      <strong>Relación DBO/DQO:</strong><br>
+      · DBO/DQO &gt; 0,5 → predominio materia orgánica biodegradable (aguas fácilmente tratables).<br>
+      · DBO/DQO &lt; 0,2 → predominio de contaminantes inorgánicos no biodegradables (aguas poco biodegradables).
+    </div>
+
+    <div class="sep"></div>
+    <h2>8. Tratamiento de Aguas Residuales</h2>
+    <div class="flow">
+      <div class="flow-step">Río</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">ETAP (potabilización)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Consumo</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">EDAR (depuración)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Río</div>
+    </div>
+
+    <h3>8.1 Tecnologías Blandas / Naturales (no convencionales)</h3>
+    <p>Aplicables a vertidos totalmente degradables, sin componente industrial. Núcleos urbanos de <strong>menos de 15.000 habitantes</strong>.</p>
+    <div class="grid-2">
+      <div class="card card-accent" style="margin:0;">
+        <h4>✅ Ventajas</h4>
+        <ul>
+          <li>Ahorro energético</li><li>Menor coste de instalación y mantenimiento</li>
+          <li>No generan impacto visual</li><li>Baja producción de fangos</li>
+        </ul>
+      </div>
+      <div class="card card-red" style="margin:0;">
+        <h4>❌ Desventajas</h4>
+        <ul>
+          <li>Ocupan mayor superficie</li><li>Proceso lento de depuración</li>
+          <li>Volumen limitado de agua a tratar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TEMA 2 — RESIDUOS SÓLIDOS
+     ============================================================ -->
+<div id="tema2-residuos" class="section">
+  <p class="section-subtitle">Tema 2 · Sección 2.4</p>
+  <h1 class="section-title">Tratamiento de Residuos Sólidos</h1>
+
+  <div class="card card-accent">
+    <h2>1. Concepto de Residuo</h2>
+    <div class="def-box">
+      <div class="def-term">Residuo — Ley 7/2022 (actual)</div>
+      <div class="def-text">Cualquier sustancia u objeto que su poseedor <strong>deseche o tenga la intención o la obligación de desechar</strong>. El concepto clave es que el residuo es aquello que <strong>no puede ser valorado económicamente</strong>.</div>
+    </div>
+
+    <div class="highlight-gold">
+      <strong>Subproducto vs. Residuo:</strong> Una sustancia resultante de un proceso de producción puede ser considerada <strong>subproducto</strong> si se cumplen determinadas condiciones (demanda real, uso directo, etc.). Incorpora el término de <strong>economía circular</strong>.
+    </div>
+
+    <h3>1.1 Lista Europea de Residuos (Códigos LER)</h3>
+    <span class="formula">XX · XX · XX<br>└── De dónde procede · Procedencia del sector · Sector y área del residuo<br>Ej: 010101 = residuos de la extracción de minerales metálicos</span>
+  </div>
+
+  <div class="card card-blue">
+    <h2>2. Clasificación de Residuos</h2>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)"><span>📍 Según su Origen</span><span class="accordion-icon">+</span></div>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        Residuos domésticos · Residuos municipales · Residuos industriales · Residuos comerciales · RCD (Residuos de Construcción y Demolición) · Residuos agrarios y silvícolas
+      </div></div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)"><span>🌿 Según Biodegradabilidad</span><span class="accordion-icon">+</span></div>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        <strong>Orgánicos biodegradables:</strong> de origen biológico (materias vegetales, animales o comestibles). ⚠️ Biodegradable ≠ más sostenible.<br><br>
+        <strong>Inorgánicos no biodegradables:</strong> de carácter industrial o artificial.
+      </div></div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)"><span>⚠️ Según su Peligrosidad</span><span class="accordion-icon">+</span></div>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        <strong>Residuos peligrosos (RTP):</strong> presenta una o varias características peligrosas. Llevan un <strong>asterisco (*)</strong> en el código LER.<br><br>
+        <strong>Inertes:</strong> no se transforman, no solubles, no combustibles, no reactivos, no biodegradables (ej: cerámicos). Se depositan en vertedero para inertes.<br>
+        <strong>No inertes:</strong> asimilables a urbanos → pueden sufrir transformaciones (restos orgánicos, neumáticos, aluminio).
+      </div></div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)"><span>📦 Según Tipología (RSU, RAEE, etc.)</span><span class="accordion-icon">+</span></div>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        RSU · RAEE · Pilas y acumuladores · VFU · NFU · Aceites industriales usados · Residuos sanitarios · Envases · RCD · Biorresiduos · Residuos mineros · Lodos de depuradora · Textil
+      </div></div>
+    </div>
+
+    <h3>Responsabilidad Ampliada del Productor</h3>
+    <p>La ley obliga a las empresas a ocuparse de la gestión de su producción cuando sea desechada. Las empresas derivan esta gestión a <strong>SIG (Sistemas Integrados de Gestión)</strong>:</p>
+    <div class="contaminant-grid">
+      <div class="contaminant-card"><div class="contaminant-name">ECOEMBES</div><div class="contaminant-desc">Envases ligeros y cartón</div></div>
+      <div class="contaminant-card"><div class="contaminant-name">ECOVIDRIO</div><div class="contaminant-desc">Envases de vidrio</div></div>
+      <div class="contaminant-card"><div class="contaminant-name">SIGRE</div><div class="contaminant-desc">Medicamentos</div></div>
+      <div class="contaminant-card"><div class="contaminant-name">SIGRAUTO</div><div class="contaminant-desc">Neumáticos fuera de uso</div></div>
+      <div class="contaminant-card"><div class="contaminant-name">SIGAUS</div><div class="contaminant-desc">Aceite industrial</div></div>
+    </div>
+  </div>
+
+  <div class="card card-gold">
+    <h2>7. Jerarquía de Gestión de Residuos (3RVE)</h2>
+    <p>El principio <strong>3RVE</strong>: <em>Reducir, Reutilizar, Reciclar → Valorizar → Eliminar</em></p>
+
+    <div class="pyramid">
+      <div class="pyramid-level"><div class="pyramid-block" style="background:rgba(74,222,128,0.2);border:1px solid var(--accent);color:var(--accent);width:200px">🔝 Prevención</div></div>
+      <div class="pyramid-level"><div class="pyramid-block" style="background:rgba(74,222,128,0.15);border:1px solid var(--accent);color:var(--accent);width:270px">♻️ Preparación para Reutilización</div></div>
+      <div class="pyramid-level"><div class="pyramid-block" style="background:rgba(56,189,248,0.12);border:1px solid #0284c7;color:#0284c7;width:340px">🔄 Reciclado</div></div>
+      <div class="pyramid-level"><div class="pyramid-block" style="background:rgba(251,191,36,0.12);border:1px solid var(--gold);color:var(--gold);width:410px">⚡ Valorización (energética u otra)</div></div>
+      <div class="pyramid-level"><div class="pyramid-block" style="background:rgba(248,113,113,0.12);border:1px solid var(--red);color:var(--red);width:480px">🗑️ Eliminación (vertedero)</div></div>
+    </div>
+    <p style="font-size:12px;color:var(--text3);text-align:center;margin-top:8px">▲ Mejor opción arriba — Peor opción abajo</p>
+
+    <h3>Evolución: de 3R a 7R</h3>
+    <div class="flow">
+      <div class="flow-step">Prevenir</div><div class="flow-arrow">→</div>
+      <div class="flow-step">Rediseñar</div><div class="flow-arrow">→</div>
+      <div class="flow-step">Reducir</div><div class="flow-arrow">→</div>
+      <div class="flow-step">Reutilizar</div><div class="flow-arrow">→</div>
+      <div class="flow-step">Reparar/Renovar</div><div class="flow-arrow">→</div>
+      <div class="flow-step">Recuperar</div><div class="flow-arrow">→</div>
+      <div class="flow-step">Reciclar</div>
+    </div>
+  </div>
+
+  <div class="card card-accent">
+    <h2>3. Reciclado</h2>
+    <table>
+      <thead>
+        <tr><th>Tipo</th><th>También llamado</th><th>Materiales</th><th>Proceso</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Secundario (2º)</strong></td><td>Mecánico/Físico</td>
+          <td>Papel, cartón, madera, vidrio, metales, polímeros termoplásticos</td>
+          <td>Solo transformación física. Metales y vidrio: no pierden propiedades. Papel y plástico: empeoran sus propiedades mecánicas.</td>
+        </tr>
+        <tr>
+          <td><strong>Terciario (3º)</strong></td><td>Químico</td>
+          <td>Solo polímeros</td>
+          <td>Implica reacción química. Lo que entra es diferente a lo que sale. Se obtiene el monómero de partida o hidrocarburos para energía.</td>
+        </tr>
+        <tr>
+          <td><strong>Cuaternario (4º)</strong></td><td>Biológico</td>
+          <td>Solo materia orgánica / biorresiduos</td>
+          <td>Compostaje (con O₂ / aeróbico) o biometanización (sin O₂ / anaeróbico)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3.1 Compostaje</h3>
+    <div class="def-box">
+      <div class="def-term">Compostaje</div>
+      <div class="def-text">Reciclado de materia orgánica mediante fermentación <strong>aeróbica (con O₂)</strong>. Solo para alimentos. Se obtiene <strong>compost (abono)</strong>.</div>
+    </div>
+    <div class="flow">
+      <div class="flow-step">Microorganismos + C/N + agua + O₂</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Gases: CO₂ + H₂O + calor</div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-step">Sólidos: COMPOST</div>
+    </div>
+    <span class="formula">FB = 0,83 − 0,028 · CL (CL = contenido en lignina)</span>
+
+    <h3>3.2 Biometanización Anaerobia</h3>
+    <div class="def-box">
+      <div class="def-term">Biometanización</div>
+      <div class="def-text">Descomposición <strong>sin oxígeno (anaeróbica)</strong>. Produce: <strong>digerido</strong> (abono de mala calidad → va a vertedero) y <strong>biogás</strong> (energía eléctrica con alto poder calorífico).</div>
+    </div>
+    <span class="formula">BIOGÁS → CH₄ + CO₂ + NH₃ + H₂S + N₂ + O₂</span>
+
+    <div class="highlight-gold">
+      <strong>Criterio de elección Compostaje vs. Biometanización:</strong><br>
+      · Alto FB + no tóxicos + relación C/N apta + 60% agua → <strong>COMPOSTAJE</strong><br>
+      · Bajo FB + humedad → <strong>BIOMETANIZACIÓN</strong><br>
+      · Si nos pasamos de agua → O₂ no pasa → no podemos aplicar compostaje → aplicamos biometanización<br>
+      · Bajo FB + alto poder calorífico → <strong>COMBUSTIÓN</strong>
+    </div>
+  </div>
+
+  <div class="card card-red">
+    <h2>4. Tratamientos Térmicos</h2>
+    <div class="tech-grid">
+      <div class="tech-card" style="border-left: 3px solid var(--red);">
+        <div class="tech-name">Incineración</div>
+        <div class="tech-row"><span class="tech-key">Proceso</span><span class="tech-val">Oxidación controlada con exceso de O₂</span></div>
+        <div class="tech-row"><span class="tech-key">Salidas</span><span class="tech-val">Sólidos + gases (filtros) + energía</span></div>
+        <div class="tech-row"><span class="tech-key">Clave</span><span class="tech-val">Necesita alto poder calorífico</span></div>
+      </div>
+      <div class="tech-card" style="border-left: 3px solid var(--gold);">
+        <div class="tech-name">Pirólisis</div>
+        <div class="tech-row"><span class="tech-key">Proceso</span><span class="tech-val">Descomposición térmica sin O₂</span></div>
+      </div>
+      <div class="tech-card" style="border-left: 3px solid var(--gold);">
+        <div class="tech-name">Gasificación</div>
+        <div class="tech-row"><span class="tech-key">Variante</span><span class="tech-val">Normal o con plasma</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-orange">
+    <h2>5. Economía Circular</h2>
+    <div class="def-box">
+      <div class="def-term">Economía Lineal (problema)</div>
+      <div class="def-text">Basada en: <strong>producir → consumir → tirar</strong>. Pérdida económica, riesgo de suministros, deterioro de sistemas naturales.</div>
+    </div>
+    <div class="def-box">
+      <div class="def-term">Economía Circular (solución)</div>
+      <div class="def-text">Materia prima → diseño → producción → distribución → consumo/uso/reuso → recolección → reciclar → vuelta a materia prima. <strong>El objetivo es cerrar el ciclo.</strong></div>
+    </div>
+
+    <h3>Etapas Previas: Acondicionamiento y Separación</h3>
+    <table>
+      <thead>
+        <tr><th>Etapa</th><th>Método</th><th>Descripción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Reducción de tamaño</td><td>Molienda</td><td>Obtener RSU más uniforme. Madera: pierde propiedades al acortarse moléculas (celulosa).</td></tr>
+        <tr><td rowspan="3">Separación</td><td>Por densidad en corriente de aire (ciclones)</td><td>Separa materiales ligeros (papel, plástico) de pesados</td></tr>
+        <tr><td>Por campo eléctrico/magnético</td><td>Para separar metales (imanes)</td></tr>
+        <tr><td>Por tamaño y forma (CRIBADO)</td><td>Cribas. Ej: tapones de botellas</td></tr>
+        <tr><td>Densificación</td><td>Compactación</td><td>↑ densidad → más eficiente almacenaje y transporte → ↓ costes</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</main>
+
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#theory-tabs .nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabMap = { 'tema1': 0, 'tema2-atm': 1, 'tema2-agua': 2, 'tema2-residuos': 3 };
+  document.querySelectorAll('#theory-tabs .nav-btn')[tabMap[id]].classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function toggleAcc(header) {
+  header.parentElement.classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+  document.getElementById('back-to-top').classList.toggle('visible', doc.scrollTop > 300);
+});
+
+// Handle hash navigation from external links
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.replace('#', '');
+  const validTabs = ['tema1', 'tema2-atm', 'tema2-agua', 'tema2-residuos'];
+  if (validTabs.includes(hash)) switchTab(hash);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casos Prácticos — Medio Ambiente</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div class="hero">
+  <div class="hero-badge">Ciencias Ambientales · Grado</div>
+  <h1>Casos <span>Prácticos</span></h1>
+  <p>Aprende a resolver trenes de tratamiento de emisiones atmosféricas paso a paso con las reglas del profesor.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">3</span><span class="lbl">Reglas clave</span></div>
+    <div class="hero-stat"><span class="num">4</span><span class="lbl">Preguntas clave</span></div>
+    <div class="hero-stat"><span class="num">1</span><span class="lbl">Caso 2021 resuelto</span></div>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-link">🏠 Inicio</a>
+  <a href="teoria.html" class="nav-link">📗 Teoría</a>
+  <a href="flashcards.html" class="nav-link">🃏 Flashcards</a>
+  <a href="test.html" class="nav-link">🎯 Test</a>
+  <a href="banco.html" class="nav-link">📦 Banco</a>
+  <a href="casos-practicos.html" class="nav-link active">🔬 Casos Prácticos</a>
+  <a href="ia.html" class="nav-link">🤖 IA</a>
+</nav>
+
+<main>
+
+<!-- ============================================================
+     SECCIÓN 1: CASO PRÁCTICO AIRE
+     ============================================================ -->
+<p class="section-subtitle">Caso Práctico</p>
+<h1 class="section-title">Tren de Tratamiento Atmosférico</h1>
+
+<!-- ── 1. LAS 4 PREGUNTAS CLAVE ─────────────────────────────── -->
+<div class="card card-accent">
+  <h2>🔑 Las 4 Preguntas Clave ante un Enunciado</h2>
+  <p>Ante cualquier enunciado de tren de tratamiento atmosférico, hazte SIEMPRE estas cuatro preguntas en este orden:</p>
+
+  <div class="grid-2">
+    <div class="mini-card" style="border-left: 4px solid var(--accent);">
+      <div class="num">1</div>
+      <div class="label">¿Cuál es la temperatura de la corriente?</div>
+      <div class="desc" style="margin-top:8px">
+        <span class="tag tag-red">Alta &gt; 260°C</span> → descarta filtros de mangas y cámaras de sedimentación<br>
+        <span class="tag tag-green">Baja ≤ 260°C</span> → todos los equipos disponibles
+      </div>
+    </div>
+    <div class="mini-card" style="border-left: 4px solid var(--gold);">
+      <div class="num">2</div>
+      <div class="label">¿Qué tamaños de partículas hay?</div>
+      <div class="desc" style="margin-top:8px">
+        <span class="tag tag-gold">d &gt; 50 μm</span> → Cámara sedimentación (si T baja) o Ciclón<br>
+        <span class="tag tag-gold">d &gt; 10 μm</span> → Ciclón suficiente<br>
+        <span class="tag tag-blue">d &lt; 1 μm</span> → ESP o filtro de mangas
+      </div>
+    </div>
+    <div class="mini-card" style="border-left: 4px solid var(--green);">
+      <div class="num">3</div>
+      <div class="label">¿La corriente es seca o húmeda?</div>
+      <div class="desc" style="margin-top:8px">
+        <span class="tag tag-green">Seca</span> → todos los equipos sólidos disponibles<br>
+        <span class="tag tag-blue">Húmeda</span> → usa lavador húmedo o ESP (H₂O es ionizante)<br>
+        <span class="tag tag-red">Seca + corrosiva</span> → lavador húmedo o cerámico
+      </div>
+    </div>
+    <div class="mini-card" style="border-left: 4px solid var(--red);">
+      <div class="num">4</div>
+      <div class="label">¿Qué gases contaminantes hay?</div>
+      <div class="desc" style="margin-top:8px">
+        <span class="tag tag-red">SO₂</span> → Torre de absorción (después de partículas)<br>
+        <span class="tag tag-red">NOx</span> → SCR: 4NO + 4NH₃ + O₂ → 4N₂ + H₂O<br>
+        <span class="tag tag-gold">COVs</span> → Adsorción (carbón activo) o incineración catalítica<br>
+        <span class="tag tag-red">CO</span> → Incineración catalítica
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-red">
+    <strong>🚨 Regla extra — "combustión incompleta":</strong> Si el enunciado menciona combustión incompleta, siempre implica la presencia de <strong>CO</strong> → añadir incineración catalítica al tren.
+  </div>
+</div>
+
+<!-- ── 2. LAS 3 REGLAS DEL PROFESOR ──────────────────────────── -->
+<div class="card card-blue">
+  <h2>📐 Las 3 Reglas del Profesor</h2>
+  <p>Estas tres reglas determinan el orden de los equipos en el tren:</p>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>🥇 Regla 1: Primero partículas, luego gases — SIEMPRE</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <p>Nunca se puede tratar un gas con presencia de partículas porque las partículas <strong>obstruyen/destruyen</strong> los equipos de control de gases (rellenos de torres, carbón activo, catalizadores SCR).</p>
+        <div class="flow">
+          <div class="flow-step">✅ Equipos de PM</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">✅ Equipos de gases</div>
+        </div>
+        <div class="flow">
+          <div class="flow-step" style="color:var(--red)">❌ NUNCA</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step" style="color:var(--red)">Gases primero</div>
+        </div>
+        <div class="highlight-red"><strong>Excepción:</strong> El ESP (precipitador electrostático) puede tratar partículas en presencia de SO₂ (gases ionizantes), pero sigue siendo un equipo de PM → sigue antes de gases.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>🥈 Regla 2: Partículas de mayor a menor tamaño (pretratamiento → medida secundaria)</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <p>Si hay distintos tamaños de partículas, se eliminan primero las más grandes (más baratas de eliminar) y después las pequeñas. Esto protege los equipos finos de las partículas gruesas.</p>
+        <div class="flow">
+          <div class="flow-step">Cámara sedimentación<br><small>d ≥ 50 μm</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Ciclón/Multiciclón<br><small>d ≥ 10 μm / ≥ 5 μm</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Filtro mangas / ESP<br><small>d ≥ 0,1 μm</small></div>
+        </div>
+        <div class="highlight-gold">Si hay PM gruesas Y finas y la corriente tiene gases ionizantes → el ESP puede hacer el trabajo de las finas sin necesitar filtro de mangas.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>🥉 Regla 3: Gases en orden de compatibilidad de procesos</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <p>El orden de los equipos de gas depende de la compatibilidad: algunos procesos generan subproductos que interfieren con el siguiente equipo.</p>
+        <table>
+          <thead>
+            <tr><th>Gas</th><th>Equipo</th><th>Por qué en ese orden</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="tag tag-red">SO₂</span></td><td>Torre de absorción (agua o Ca(OH)₂)</td><td>Va antes de SCR porque el SO₂ envenena los catalizadores de SCR</td></tr>
+            <tr><td><span class="tag tag-red">NOx</span></td><td>SCR (Reducción Catalítica Selectiva)</td><td>Va después de SO₂ para no contaminar el catalizador</td></tr>
+            <tr><td><span class="tag tag-gold">COVs</span></td><td>Adsorción con carbón activo</td><td>Va en último lugar: T baja y corriente seca requerida</td></tr>
+            <tr><td><span class="tag tag-red">CO</span></td><td>Incineración catalítica (oxidación)</td><td>Puede ir antes o después según la T del proceso</td></tr>
+          </tbody>
+        </table>
+        <span class="formula">SCR: 4NO + 4NH₃ + O₂ → 4N₂ + 6H₂O (reacción clave del examen)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3. ÁRBOL DE DECISIÓN INTERACTIVO ──────────────────────── -->
+<div class="card card-gold">
+  <h2>🌳 Árbol de Decisión Interactivo</h2>
+  <p style="margin-bottom:20px">Haz clic en los nodos para navegar por el árbol y llegar al equipo correcto.</p>
+
+  <div id="tree-container"></div>
+
+  <button class="btn btn-secondary" onclick="resetTree()" style="margin-top:16px">🔄 Reiniciar árbol</button>
+</div>
+
+<!-- ── 4. CASO EXAMEN 2021 RESUELTO ──────────────────────────── -->
+<div class="card card-red">
+  <h2>📋 Caso del Examen 2021 — Resuelto Paso a Paso</h2>
+
+  <div class="def-box">
+    <div class="def-term">Enunciado del Examen</div>
+    <div class="def-text">
+      Una planta industrial genera una corriente gaseosa a <strong>350°C</strong> con las siguientes características:<br>
+      · Partículas de <strong>d ≥ 20 μm</strong> en alto caudal (corriente seca)<br>
+      · Partículas finas de <strong>d &lt; 1 μm</strong><br>
+      · Gases ionizantes presentes (SO₂, H₂O)<br>
+      · Presencia de <strong>SO₂</strong><br>
+      · Presencia de <strong>NOx</strong><br>
+      · Evidencias de <strong>combustión incompleta</strong><br><br>
+      <strong>¿Qué tren de tratamiento propones? Justifica cada equipo elegido y descartado.</strong>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Paso 1 — Análisis de condiciones</h3>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="label">Temperatura</div>
+      <div class="desc">350°C → ALTA (&gt;260°C)<br>Se descartan: filtros de mangas y cámaras de sedimentación</div>
+    </div>
+    <div class="mini-card">
+      <div class="label">Partículas</div>
+      <div class="desc">d ≥ 20 μm → Ciclón (pretratamiento)<br>d &lt; 1 μm + gases ionizantes → Electrofiltro (ESP)</div>
+    </div>
+    <div class="mini-card">
+      <div class="label">Corriente</div>
+      <div class="desc">Seca + SO₂, H₂O (ionizantes)<br>El ESP funciona: H₂O y SO₂ son ionizantes</div>
+    </div>
+    <div class="mini-card">
+      <div class="label">Gases</div>
+      <div class="desc">SO₂ → torre absorción<br>NOx → SCR<br>Combustión incompleta → CO → incineración catalítica</div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Paso 2 — Aplicar las 3 reglas</h3>
+  <div class="highlight-blue">
+    <strong>Regla 1:</strong> Primero todas las partículas, luego todos los gases.<br>
+    <strong>Regla 2:</strong> Primero las gruesas (ciclón), luego las finas (ESP).<br>
+    <strong>Regla 3:</strong> Gases: SO₂ (absorción) → NOx (SCR) → CO (incineración catalítica).
+  </div>
+
+  <div class="sep"></div>
+  <h3>Paso 3 — Tren de tratamiento propuesto</h3>
+  <div class="sim-flow" style="flex-wrap:wrap;gap:6px;margin:16px 0;">
+    <div class="sim-equip">🌀 Ciclón</div>
+    <div class="sim-arrow">→</div>
+    <div class="sim-equip">⚡ ESP</div>
+    <div class="sim-arrow">→</div>
+    <div class="sim-equip">🗼 Torre absorción SO₂</div>
+    <div class="sim-arrow">→</div>
+    <div class="sim-equip">🔬 SCR NOx</div>
+    <div class="sim-arrow">→</div>
+    <div class="sim-equip">🔥 Incineración catalítica CO</div>
+    <div class="sim-arrow">→</div>
+    <div class="sim-equip" style="background:var(--green)">🌿 Emisión limpia</div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Paso 4 — Justificación detallada</h3>
+  <table>
+    <thead>
+      <tr><th>Equipo</th><th>Decisión</th><th>Justificación</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Cámara de sedimentación</strong></td><td><span class="tag tag-red">DESCARTADO</span></td><td>T = 350°C &gt; 260°C → la cámara sedimentación no funciona a esa temperatura.</td></tr>
+      <tr><td><strong>Filtros de mangas</strong></td><td><span class="tag tag-red">DESCARTADO</span></td><td>T = 350°C &gt; 260°C → el material de la manga (incluso cerámico a 800°C podría usarse, pero la corriente tiene humedad y SO₂ → corrosivo para mangas). La opción ESP es más adecuada.</td></tr>
+      <tr><td><strong>Ciclón</strong></td><td><span class="tag tag-green">ELEGIDO — 1º</span></td><td>d ≥ 20 μm, corriente seca, alta T. El ciclón maneja corrientes a alta temperatura y alta velocidad. Actúa como pretratamiento para las partículas gruesas. Protege el ESP de sobrecarga.</td></tr>
+      <tr><td><strong>ESP (Precipitador electrostático)</strong></td><td><span class="tag tag-green">ELEGIDO — 2º</span></td><td>d &lt; 1 μm + gases ionizantes (SO₂, H₂O). El ESP requiere exactamente gases ionizantes → cumplido. Puede manejar hasta 700°C. Trata las partículas muy finas que el ciclón no puede capturar.</td></tr>
+      <tr><td><strong>Torre de absorción (SO₂)</strong></td><td><span class="tag tag-green">ELEGIDO — 3º</span></td><td>SO₂ presente. La absorción con agua o Ca(OH)₂ elimina el SO₂. Debe ir ANTES del SCR para no envenenar el catalizador de NOx. NOTA: Esta torre genera agua residual que deberá tratarse.</td></tr>
+      <tr><td><strong>SCR (Reducción Catalítica Selectiva)</strong></td><td><span class="tag tag-green">ELEGIDO — 4º</span></td><td>NOx presente. Reacción: 4NO + 4NH₃ + O₂ → 4N₂ + 6H₂O. Va después de retirar el SO₂ (que envenena el catalizador) y después de las partículas (que obstruirían el lecho catalítico).</td></tr>
+      <tr><td><strong>Incineración catalítica</strong></td><td><span class="tag tag-green">ELEGIDO — 5º</span></td><td>Combustión incompleta → CO. La oxidación catalítica convierte CO en CO₂ a baja temperatura. Va en último lugar del tren gaseoso.</td></tr>
+      <tr><td><strong>Torre de adsorción (carbón activo)</strong></td><td><span class="tag tag-red">DESCARTADO</span></td><td>La adsorción requiere T &lt; 30°C y corriente seca. La corriente viene a 350°C → no aplicable.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── 5. SIMULADOR INTERACTIVO ───────────────────────────────── -->
+<div class="card" style="border-top: 3px solid var(--accent);">
+  <h2>🧪 Simulador: Genera tu Tren de Tratamiento</h2>
+  <p>Marca las condiciones de tu corriente gaseosa y obtén el tren de tratamiento recomendado con justificación.</p>
+
+  <div class="simulator-grid">
+    <label class="sim-check">
+      <input type="checkbox" id="sim-alta-t">
+      <span>🌡️ Temperatura alta (&gt;260°C)</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-gran-caudal">
+      <span>💨 Gran caudal de gases</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-seca">
+      <span>🏜️ Corriente seca</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-humeda">
+      <span>💧 Corriente húmeda / corrosiva</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-pm-gruesa">
+      <span>🪨 Partículas gruesas (d &gt; 20 μm)</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-pm-fina">
+      <span>🔬 Partículas finas (d &lt; 1 μm)</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-so2">
+      <span>⚗️ SO₂ presente</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-nox">
+      <span>🏭 NOx presente</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-covs">
+      <span>🧪 COVs / combustión incompleta (CO)</span>
+    </label>
+    <label class="sim-check">
+      <input type="checkbox" id="sim-ionizantes">
+      <span>⚡ Gases ionizantes (SO₂, CO₂, H₂O, O₂)</span>
+    </label>
+  </div>
+
+  <div style="margin-top:20px;">
+    <button class="btn" onclick="runSimulator()">🔬 Generar tren de tratamiento</button>
+    <button class="btn btn-secondary" onclick="resetSimulator()" style="margin-left:10px">🔄 Limpiar</button>
+  </div>
+
+  <div class="sim-result" id="sim-result"></div>
+</div>
+
+<!-- ============================================================
+     SECCIÓN 2: CASO PRÁCTICO AGUA (PLACEHOLDER)
+     ============================================================ -->
+<div class="sep" style="margin:40px 0"></div>
+
+<p class="section-subtitle">Próximamente</p>
+<h1 class="section-title" style="border:none;padding:0;margin-bottom:20px">Caso Práctico: EDAR</h1>
+
+<div class="card card-blue">
+  <div style="text-align:center;padding:32px;">
+    <div style="font-size:48px;margin-bottom:16px">💧</div>
+    <h2 style="margin-bottom:12px">Próximamente — Caso Práctico EDAR</h2>
+    <p style="max-width:500px;margin:0 auto 20px;color:var(--text3)">
+      Esta sección incluirá el caso práctico completo de una Estación Depuradora de Aguas Residuales (EDAR):
+      análisis de parámetros (DBO₅, DQO, SS, NT, PT), selección de tratamiento primario/secundario/terciario
+      y ejercicio de examen resuelto paso a paso.
+    </p>
+    <div class="flow" style="justify-content:center">
+      <div class="flow-step">Análisis de parámetros</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Línea de agua</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Línea de fangos</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Vertido al río</div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
+
+<script>
+// ── Accordion ─────────────────────────────────────────────────
+function toggleAcc(header) {
+  header.parentElement.classList.toggle('open');
+}
+
+// ── Decision Tree ─────────────────────────────────────────────
+const treeData = {
+  id: 'root',
+  q: '¿Temperatura alta (&gt;260°C)?',
+  si: {
+    id: 'si-t',
+    info: '<span class="tag tag-red">Descartados: Filtros de mangas · Cámaras de sedimentación</span>',
+    q: '¿Partículas gruesas (d &gt; 20 μm)?',
+    si: {
+      id: 'si-t-pm-g',
+      equip: '🌀 Ciclón (pretratamiento)',
+      q: '¿Gases ionizantes presentes (SO₂, H₂O, CO₂, O₂)?',
+      si: {
+        id: 'si-t-pm-g-ion',
+        equip: '⚡ Precipitador electrostático (ESP)',
+        q: '¿SO₂ presente?',
+        si: {
+          id: 'si-t-pm-g-ion-so2',
+          equip: '🗼 Torre de absorción (elimina SO₂)',
+          q: '¿NOx presente?',
+          si: { id: 'final-scr', equip: '🔬 SCR (4NO+4NH₃+O₂→4N₂+6H₂O)', final: true, msg: '✅ Tren completo: Ciclón → ESP → Absorción SO₂ → SCR NOx' },
+          no: { id: 'final-no-nox', final: true, msg: '✅ Tren: Ciclón → ESP → Torre absorción SO₂' }
+        },
+        no: {
+          id: 'si-t-pm-g-ion-noso2',
+          q: '¿NOx presente?',
+          si: { id: 'final-nox-only', equip: '🔬 SCR NOx', final: true, msg: '✅ Tren: Ciclón → ESP → SCR NOx' },
+          no: { id: 'final-basic', final: true, msg: '✅ Tren básico: Ciclón → ESP (no hay gases que controlar)' }
+        }
+      },
+      no: {
+        id: 'si-t-pm-g-noion',
+        info: '<span class="tag tag-red">Sin ionizantes: no se puede usar ESP</span>',
+        final: true,
+        msg: '⚠️ Solo Ciclón disponible para PM. Para gases: depende del tipo. Sin ionizantes no se puede usar ESP.'
+      }
+    },
+    no: {
+      id: 'si-t-nopm-g',
+      q: '¿Partículas finas (d &lt; 1 μm) con gases ionizantes?',
+      si: {
+        id: 'si-t-nopm-g-ion',
+        equip: '⚡ Precipitador electrostático (ESP)',
+        final: true,
+        msg: '✅ Solo ESP para PM finas. Añade equipos de gases según contaminantes presentes.'
+      },
+      no: {
+        id: 'si-t-nopm-g-noion',
+        final: true,
+        msg: '⚠️ Sin gases ionizantes y T alta: ningún equipo de PM es adecuado excepto ciclón si d≥10μm. Revisa condiciones.'
+      }
+    }
+  },
+  no: {
+    id: 'no-t',
+    info: '<span class="tag tag-green">T baja: todos los equipos disponibles</span>',
+    q: '¿Partículas grandes (d &gt; 50 μm)?',
+    si: {
+      id: 'no-t-pm-xl',
+      equip: '🏠 Cámara de sedimentación (pretratamiento)',
+      q: '¿También partículas medianas (10–50 μm)?',
+      si: {
+        id: 'no-t-pm-xl-m',
+        equip: '🌀 Ciclón',
+        q: '¿Corriente seca?',
+        si: {
+          id: 'no-t-pm-xl-m-dry',
+          equip: '🧦 Filtro de mangas (PM finas, 99% eficiencia)',
+          final: true,
+          msg: '✅ Tren T-baja: Cámara sedimentación → Ciclón → Filtro mangas'
+        },
+        no: { id: 'no-t-pm-xl-m-wet', equip: '💦 Lavador húmedo (corriente húmeda/corrosiva)', final: true, msg: '✅ Tren T-baja húmeda: Cámara sedimentación → Ciclón → Lavador húmedo' }
+      },
+      no: {
+        id: 'no-t-pm-xl-only',
+        q: '¿Corriente seca?',
+        si: { id: 'no-t-pm-xl-dry', equip: '🧦 Filtro de mangas', final: true, msg: '✅ Tren T-baja: Cámara sedimentación → Filtro mangas' },
+        no: { id: 'no-t-pm-xl-wet', equip: '💦 Lavador húmedo', final: true, msg: '✅ Tren T-baja húmeda: Cámara sedimentación → Lavador húmedo' }
+      }
+    },
+    no: {
+      id: 'no-t-no-pm-xl',
+      q: '¿Partículas medianas (d &gt; 10 μm)?',
+      si: {
+        id: 'no-t-pm-m',
+        equip: '🌀 Ciclón (pretratamiento)',
+        q: '¿Corriente seca?',
+        si: { id: 'no-t-pm-m-dry', equip: '🧦 Filtro de mangas', final: true, msg: '✅ Tren T-baja: Ciclón → Filtro mangas' },
+        no: { id: 'no-t-pm-m-wet', equip: '💦 Lavador húmedo', final: true, msg: '✅ Tren T-baja húmeda: Ciclón → Lavador húmedo' }
+      },
+      no: {
+        id: 'no-t-only-fines',
+        q: '¿Corriente seca?',
+        si: { id: 'no-t-fines-dry', equip: '🧦 Filtro de mangas (PM muy finas)', final: true, msg: '✅ Solo filtro de mangas para PM finas en corriente seca y T baja.' },
+        no: { id: 'no-t-fines-wet', equip: '💦 Lavador húmedo scrubber', final: true, msg: '✅ Lavador húmedo para PM finas en corriente húmeda.' }
+      }
+    }
+  }
+};
+
+let treeStack = [];
+let currentNode = treeData;
+
+function renderTree() {
+  const container = document.getElementById('tree-container');
+  let html = '';
+
+  if (treeStack.length > 0) {
+    html += '<div style="margin-bottom:16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">';
+    html += '<span style="font-size:12px;color:var(--text3)">Camino:</span>';
+    treeStack.forEach((step, i) => {
+      html += `<span class="tag tag-blue">${step.label}</span>`;
+      if (i < treeStack.length - 1) html += '<span style="color:var(--text3)">→</span>';
+    });
+    if (currentNode.equip) html += `<span class="tag tag-green">→ ${currentNode.equip}</span>`;
+    html += '</div>';
+  }
+
+  if (currentNode.equip && !currentNode.final) {
+    html += `<div class="highlight"><strong>Equipo añadido:</strong> ${currentNode.equip}</div>`;
+  }
+
+  if (currentNode.info) {
+    html += `<div class="highlight-gold">${currentNode.info}</div>`;
+  }
+
+  if (currentNode.final) {
+    html += `<div class="highlight" style="font-size:15px;padding:16px 20px;">${currentNode.msg || currentNode.equip}</div>`;
+    html += `<button class="btn btn-secondary" onclick="resetTree()" style="margin-top:8px">🔄 Empezar de nuevo</button>`;
+  } else {
+    html += `<div class="dt-node dt-root">${currentNode.q}</div>`;
+    html += '<div class="dt-branches">';
+    html += `<div class="dt-branch">
+      <div class="dt-label si">▶ SÍ</div>
+      <div class="dt-result"><button class="btn" style="width:100%" onclick="treeBranch('si')">Sí ✓</button></div>
+    </div>`;
+    html += `<div class="dt-branch">
+      <div class="dt-label no">▶ NO</div>
+      <div class="dt-result"><button class="btn btn-secondary" style="width:100%" onclick="treeBranch('no')">No ✗</button></div>
+    </div>`;
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
+}
+
+function treeBranch(branch) {
+  const label = branch === 'si' ? `SÍ — ${currentNode.q.replace(/&gt;/g,'>').replace(/&lt;/g,'<').substring(0,40)}...` : `NO`;
+  treeStack.push({ label });
+  currentNode = currentNode[branch];
+  renderTree();
+}
+
+function resetTree() {
+  treeStack = [];
+  currentNode = treeData;
+  renderTree();
+}
+
+// ── Simulator ─────────────────────────────────────────────────
+function runSimulator() {
+  const altaT = document.getElementById('sim-alta-t').checked;
+  const seca = document.getElementById('sim-seca').checked;
+  const humeda = document.getElementById('sim-humeda').checked;
+  const pmGruesa = document.getElementById('sim-pm-gruesa').checked;
+  const pmFina = document.getElementById('sim-pm-fina').checked;
+  const so2 = document.getElementById('sim-so2').checked;
+  const nox = document.getElementById('sim-nox').checked;
+  const covs = document.getElementById('sim-covs').checked;
+  const ionizantes = document.getElementById('sim-ionizantes').checked || so2;
+
+  const equipos = [];
+  const justificaciones = [];
+  const descartados = [];
+
+  if (altaT) {
+    descartados.push({ nombre: 'Filtros de mangas', razon: 'Temperatura &gt;260°C: el material sintético se quema.' });
+    descartados.push({ nombre: 'Cámaras de sedimentación', razon: 'Temperatura &gt;260°C: no están diseñadas para alta T.' });
+  }
+
+  if (pmGruesa) {
+    if (altaT) {
+      equipos.push('🌀 Ciclón');
+      justificaciones.push('Ciclón: PM gruesas (d&gt;20μm) + alta T. El ciclón maneja alta temperatura y alta velocidad.');
+    } else {
+      equipos.push('🏠 Cámara de sedimentación');
+      justificaciones.push('Cámara sedimentación: PM&gt;50μm a baja T. Pretratamiento económico.');
+      equipos.push('🌀 Ciclón');
+      justificaciones.push('Ciclón: complementa la cámara para PM 10–50μm. Regla 2: de mayor a menor tamaño.');
+    }
+  } else if (!altaT) {
+    if (!humeda) {
+      equipos.push('🌀 Ciclón (si d&gt;10μm)');
+    }
+  }
+
+  if (pmFina) {
+    if (ionizantes) {
+      equipos.push('⚡ Precipitador electrostático (ESP)');
+      justificaciones.push('ESP: PM finas (d&lt;1μm) con gases ionizantes presentes. Eficiencia 90-99%.');
+    } else if (!altaT && (seca || !humeda)) {
+      equipos.push('🧦 Filtros de mangas');
+      justificaciones.push('Filtros de mangas: PM finas (d≥0,1μm), corriente seca y T&lt;260°C. Eficiencia 99%.');
+    } else if (humeda) {
+      equipos.push('💦 Lavador húmedo (Venturi)');
+      justificaciones.push('Lavador húmedo Venturi: corriente húmeda o corrosiva con PM finas.');
+    } else {
+      equipos.push('⚡ Precipitador electrostático (ESP)');
+      justificaciones.push('ESP con alta T: única opción viable para PM finas en alta temperatura si hay trazas de ionizantes.');
+    }
+  } else if (!pmGruesa && humeda) {
+    equipos.push('💦 Lavador húmedo');
+    justificaciones.push('Lavador húmedo: corriente húmeda/corrosiva. Elimina PM y parte de gases ácidos.');
+  }
+
+  if (so2) {
+    equipos.push('🗼 Torre de absorción (SO₂)');
+    justificaciones.push('Torre absorción con agua o Ca(OH)₂: elimina SO₂. Va ANTES del SCR para no envenenar el catalizador.');
+  }
+
+  if (nox) {
+    equipos.push('🔬 SCR (Reducción Catalítica Selectiva NOx)');
+    justificaciones.push('SCR: 4NO + 4NH₃ + O₂ → 4N₂ + 6H₂O. Va después de eliminar SO₂ y partículas.');
+  }
+
+  if (covs) {
+    if (!altaT && seca) {
+      equipos.push('🪨 Torre de adsorción (carbón activo) — COVs/CO');
+      justificaciones.push('Adsorción con carbón activo: T&lt;30°C y corriente seca. Eficiencia 95-99% para COVs.');
+    } else {
+      equipos.push('🔥 Incineración catalítica (CO/COVs)');
+      justificaciones.push('Incineración catalítica: convierte CO y COVs en CO₂ + H₂O. Necesaria cuando hay combustión incompleta o T alta.');
+    }
+  }
+
+  if (equipos.length === 0) {
+    document.getElementById('sim-result').innerHTML = `
+      <div class="highlight-gold">⚠️ Selecciona al menos una condición para generar el tren de tratamiento.</div>`;
+    document.getElementById('sim-result').classList.add('show');
+    return;
+  }
+
+  let flowHtml = '<div class="sim-flow">';
+  equipos.forEach((eq, i) => {
+    flowHtml += `<div class="sim-equip">${eq}</div>`;
+    if (i < equipos.length - 1) flowHtml += '<div class="sim-arrow">→</div>';
+  });
+  flowHtml += '<div class="sim-arrow">→</div><div class="sim-equip" style="background:var(--green)">🌿 Emisión limpia</div>';
+  flowHtml += '</div>';
+
+  let justHtml = '<h3 style="margin-top:20px">Justificación de cada equipo:</h3><ul style="margin-top:8px">';
+  justificaciones.forEach(j => { justHtml += `<li class="sim-desc" style="margin-bottom:6px">${j}</li>`; });
+  justHtml += '</ul>';
+
+  let descHtml = '';
+  if (descartados.length > 0) {
+    descHtml = '<div class="sim-descartado"><strong>Equipos descartados:</strong><ul style="margin:8px 0 0 18px">';
+    descartados.forEach(d => { descHtml += `<li><strong>${d.nombre}:</strong> ${d.razon}</li>`; });
+    descHtml += '</ul></div>';
+  }
+
+  document.getElementById('sim-result').innerHTML = `
+    <h3 style="color:var(--green);margin-bottom:12px">✅ Tren de tratamiento recomendado:</h3>
+    ${flowHtml}
+    ${justHtml}
+    ${descHtml}`;
+  document.getElementById('sim-result').classList.add('show');
+}
+
+function resetSimulator() {
+  document.querySelectorAll('.sim-check input').forEach(cb => cb.checked = false);
+  const result = document.getElementById('sim-result');
+  result.classList.remove('show');
+  result.innerHTML = '';
+}
+
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+  document.getElementById('back-to-top').classList.toggle('visible', doc.scrollTop > 300);
+});
+
+window.addEventListener('DOMContentLoaded', () => renderTree());
+</script>
+</body>
+</html>

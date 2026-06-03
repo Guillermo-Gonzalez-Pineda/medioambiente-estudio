@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banco de Preguntas — Medio Ambiente</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div class="hero">
+  <div class="hero-badge">Ciencias Ambientales · Grado</div>
+  <h1>Banco de <span>Preguntas</span></h1>
+  <p>Colección completa de preguntas y respuestas. Revela la respuesta cuando quieras y filtra por tema.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">60+</span><span class="lbl">Preguntas</span></div>
+    <div class="hero-stat"><span class="num">4</span><span class="lbl">Temas</span></div>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-link">🏠 Inicio</a>
+  <a href="teoria.html" class="nav-link">📗 Teoría</a>
+  <a href="flashcards.html" class="nav-link">🃏 Flashcards</a>
+  <a href="test.html" class="nav-link">🎯 Test</a>
+  <a href="banco.html" class="nav-link active">📦 Banco</a>
+  <a href="casos-practicos.html" class="nav-link">🔬 Casos Prácticos</a>
+  <a href="ia.html" class="nav-link">🤖 IA</a>
+</nav>
+
+<main>
+  <p class="section-subtitle">Banco de Preguntas</p>
+  <h1 class="section-title">Preguntas con Respuesta</h1>
+
+  <div class="card card-accent" style="margin-bottom:16px;">
+    <p style="margin-bottom:12px;font-size:14px">Haz clic en <strong>"Ver respuesta"</strong> para revelarla. Filtra por tema:</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button class="btn btn-secondary" style="font-size:12px;padding:6px 14px" onclick="filterBank('all')">📚 Todos</button>
+      <button class="btn btn-secondary" style="font-size:12px;padding:6px 14px" onclick="filterBank('t1')">🌱 Tema 1</button>
+      <button class="btn btn-secondary" style="font-size:12px;padding:6px 14px" onclick="filterBank('atm')">💨 Atmósfera</button>
+      <button class="btn btn-secondary" style="font-size:12px;padding:6px 14px" onclick="filterBank('agua')">💧 Agua</button>
+      <button class="btn btn-secondary" style="font-size:12px;padding:6px 14px" onclick="filterBank('residuos')">♻️ Residuos</button>
+    </div>
+    <div style="margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--text3)" id="bank-count"></div>
+  </div>
+
+  <div id="question-bank" class="bank-grid"></div>
+</main>
+
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
+
+<script>
+const bankQuestions = [
+  // TEMA 1
+  {t:'t1', q:'¿Qué es el Protocolo de Kioto y qué año se firmó?', a:'Acuerdo de la III Conferencia NN.UU sobre el Cambio Climático, firmado en 1997 en Japón. Busca reducir la carbonización y la emisión de gases de efecto invernadero.'},
+  {t:'t1', q:'¿Cuáles son las 4 responsabilidades del ciudadano en sostenibilidad?', a:'1. Conciencia ambiental 2. Equidad global 3. Consumo responsable 4. Participación activa'},
+  {t:'t1', q:'Nombra 3 catástrofes relacionadas con contaminación citadas en el tema.', a:'Vertidos de Erika/Exxon Valdez/Prestige (petróleo), contaminación por mercurio en Minamata, accidentes de Fukushima/Bhopal/Seveso/Aznalcóllar.'},
+  {t:'t1', q:'¿Cuál fue el primer informe que planteó los límites del crecimiento?', a:'El Informe del Club de Roma de 1972: "Limits to Growth".'},
+  {t:'t1', q:'¿En qué se diferencia el ACV de la Huella de Carbono?', a:'El ACV evalúa todas las cargas ambientales (energía, materiales, emisiones) de forma amplia. La Huella de Carbono solo cuantifica las emisiones de GEI expresadas como CO₂ equivalente.'},
+  {t:'t1', q:'¿Qué es la Agenda 21?', a:'Documento creado en la Cumbre de Río de 1992 que establece un plan de acción global para el Desarrollo Sostenible en el siglo XXI.'},
+  {t:'t1', q:'¿Cuáles son los 3 componentes de la Biosfera?', a:'Atmósfera (capa gaseosa), Hidrosfera (aguas superficiales y subterráneas), Litosfera (suelos).'},
+  {t:'t1', q:'¿Cuáles son los 3 efectos de la industria según el tema?', a:'Efectos económicos (sueldos e impuestos), sociales (productos, empleo) y medioambientales (consume recursos + genera emisiones y residuos).'},
+  {t:'t1', q:'¿Por qué disminuyó el espesor de la capa de ozono?', a:'Por la emisión de compuestos químicos como los CFC (clorofluorocarbonos) que reaccionan con el ozono y provocan su destrucción.'},
+  {t:'t1', q:'¿En qué consiste la acción de "inacción vigilante" de la Administración?', a:'Dejar la protección del medio ambiente al mercado. La Administración solo vigila espacios naturales de especial relevancia, sin intervención activa.'},
+  // ATMÓSFERA
+  {t:'atm', q:'¿Cuáles son las 3 medidas de control de la calidad del aire?', a:'a) Prevención (antes del proceso) b) Medidas primarias (modificar el proceso) c) Medidas secundarias (depurar gases antes de emitirlos).'},
+  {t:'atm', q:'¿Qué es la Ley de Stokes y para qué se usa?', a:'Ley que describe el movimiento de objetos esféricos en un fluido. Se usa como marco teórico para analizar el movimiento de partículas en el aire y diseñar sistemas de control de PM.'},
+  {t:'atm', q:'¿Por qué se consideran los GEI contaminantes globales y no atmosféricos?', a:'Porque afectan a todo el planeta, mientras que la definición de contaminación atmosférica se refiere a efectos locales o regionales.'},
+  {t:'atm', q:'¿Qué tamaño de partícula separan los ciclones con eficiencia superior al 90%?', a:'d ≥ 10 μm. Los multiciclones pueden llegar a d ≥ 5 μm.'},
+  {t:'atm', q:'¿Por qué los ciclones de diámetro pequeño son más eficientes?', a:'Porque los pequeños radios de curvatura producen mayores aceleraciones radiales para la misma velocidad tangencial, y el polvo recorre menor distancia radial hasta alcanzar la pared.'},
+  {t:'atm', q:'¿Cuál es el material de manga para ambientes con ácidos y bases y alta temperatura?', a:'Cerámico refractario: hasta 800°C, resistente a ácidos y bases. Desventaja: baja resistencia a la flexión.'},
+  {t:'atm', q:'¿Cómo se eliminan las partículas adheridas a los electrodos en un precipitador electrostático?', a:'Mediante vibración, impulsos mecánicos o procedimientos eléctricos. Las partículas caen en una tolva de la parte inferior.'},
+  {t:'atm', q:'¿Qué gases se pueden eliminar mediante absorción con agua?', a:'NH₃, SO₂, Cl₂ y COVs solubles en agua (como acetona y alcoholes).'},
+  {t:'atm', q:'¿Cómo funciona una torre de absorción de relleno?', a:'El gas entra por abajo y el líquido absorbente baja por arriba (contracorriente). El relleno (arcilla, porcelana, plásticos inertes) aumenta la superficie de contacto líquido-gas.'},
+  {t:'atm', q:'¿Qué usos tiene el carbón activo como adsorbente?', a:'Recuperación de disolventes orgánicos, tratamiento de malos olores, eliminación de vapores tóxicos (hidrocarburos clorados), tratamiento de COVs.'},
+  {t:'atm', q:'¿Cuándo se usan lavadores húmedos en lugar de filtros secos?', a:'Cuando la materia es húmeda, corrosiva o muy caliente, donde los filtros de mangas no pueden operar.'},
+  {t:'atm', q:'¿Qué es el "efecto corona" en los precipitadores electrostáticos?', a:'La ionización (carga negativa) de las moléculas de los gases ionizantes (H₂O, O₂, SO₂, CO₂) al aplicar una descarga eléctrica elevada. Es la 1ª etapa del proceso.'},
+  // AGUA
+  {t:'agua', q:'¿Qué medida cuantifica los sólidos en suspensión del agua?', a:'Se pesa el filtro (poro 1,2 μm), se filtra la muestra y se pesa el filtro tras eliminar la humedad. SS = m\' - m. Unidad: mg/L (ppm).'},
+  {t:'agua', q:'¿Qué es la lixiviación?', a:'El proceso por el que los contaminantes se filtran a través del suelo y pueden llegar a contaminar aguas subterráneas.'},
+  {t:'agua', q:'¿Qué consecuencias tiene la marea roja?', a:'Las microalgas producen toxinas que se acumulan en moluscos bivalvos (mejillones, almejas), causando intoxicaciones graves o mortales en humanos. Tiñe el agua de colores rojizo, pardo o verde.'},
+  {t:'agua', q:'¿Cuál es el rango de pH adecuado para el agua?', a:'Entre 6,5 y 7,5.'},
+  {t:'agua', q:'¿Por qué es importante el oxígeno disuelto (OD) en el agua?', a:'Es imprescindible para la vida de los seres vivos acuáticos y para la degradación aeróbica de la materia orgánica. Su reducción impide la vida de ciertas especies.'},
+  {t:'agua', q:'¿Qué indica si hay NH₃, NH₂, NO₃ o NO₂ en el agua?', a:'Que ha habido materia orgánica en descomposición en ese agua, ya que son productos nitrogenados derivados de la descomposición.'},
+  {t:'agua', q:'¿Cuál es la diferencia entre ETAP y EDAR?', a:'ETAP (Estación de Tratamiento de Agua Potable): convierte agua natural en agua potable. EDAR (Estación Depuradora de Aguas Residuales): trata el agua residual antes de devolverla al río.'},
+  {t:'agua', q:'¿Por qué las grasas y aceites son problemáticos en el agua?', a:'Forman una capa superficial que impide la captación de O₂ por los microorganismos (reduce la biodegradación), disminuye la mojabilidad de los sólidos e impide su sedimentación.'},
+  {t:'agua', q:'¿Qué efecto tiene el aumento de conductividad en el agua?', a:'Una conductividad elevada implica elevada salinidad o valores anómalos de pH, lo que afecta a los seres vivos y a los usos del agua.'},
+  // RESIDUOS
+  {t:'residuos', q:'¿Cómo se estructura el código LER?', a:'6 cifras: las 2 primeras indican de dónde procede, las 2 siguientes la procedencia del sector y las 2 últimas el sector y área específica del residuo. Ej: 010101 = residuos de la extracción de minerales metálicos.'},
+  {t:'residuos', q:'¿Qué es el ecodiseño?', a:'Diseñar productos fáciles de reciclar, separar y preparar para su gestión al final de vida. Elegir materiales y minimizarlos. Pensar en el final de vida desde el diseño.'},
+  {t:'residuos', q:'¿Cuál es la diferencia entre compostaje y biometanización en cuanto a los productos obtenidos?', a:'Compostaje: produce COMPOST (abono de calidad). Biometanización: produce BIOGÁS (energía, alto poder calorífico) y digestato (abono de peor calidad que va al vertedero).'},
+  {t:'residuos', q:'¿Cuándo se elige incineración sobre otros tratamientos térmicos?', a:'Cuando el residuo tiene bajo FB y alto poder calorífico. La mayoría de los plásticos tienen alto PC porque provienen del petróleo.'},
+  {t:'residuos', q:'¿Qué son los RCD y cuál es su problema?', a:'Residuos de Construcción y Demolición. Los más voluminosos. Problema: ocupan mucho espacio (afectan al paisaje). Reciclaje complejo: se muelen, se separan por tipologías y se usan como material de relleno.'},
+  {t:'residuos', q:'¿Qué es la capacidad de campo de un residuo?', a:'La cantidad máxima de humedad que puede tener un residuo cuando es sometido a la gravedad. Es relevante para residuos destinados a vertedero, ya que determina la generación de lixiviados.'},
+  {t:'residuos', q:'¿Qué es el SCRAP?', a:'Sistema Colectivo de Responsabilidad Ampliada del Productor. Plataforma creada por los productores para gestionar los residuos de sus productos al final de vida útil.'},
+  {t:'residuos', q:'¿Por qué la madera pierde propiedades al reciclarse?', a:'Porque es un compuesto celulósico. Al reciclarse mecánicamente, las moléculas de celulosa se acortan, perdiendo propiedades mecánicas. Por eso las fibras recicladas producen papel de menor calidad.'},
+  {t:'residuos', q:'¿Qué ODS están relacionados con la gestión de residuos?', a:'Principalmente el ODS 12 (producción y consumo responsables) y, por derivación, el 13 (clima), 14 (vida submarina), 15 (vida terrestre), 6 (agua limpia) y 1 (fin de la pobreza).'},
+  {t:'residuos', q:'¿Cuáles son los residuos que generan más volumen?', a:'Los residuos de construcción y demolición (RCD). Generan el mayor volumen.'},
+];
+
+let currentBankFilter = 'all';
+
+function filterBank(tema) {
+  currentBankFilter = tema;
+  renderBank();
+  document.querySelectorAll('[onclick^="filterBank"]').forEach(btn => btn.classList.remove('active'));
+}
+
+function renderBank() {
+  const filtered = currentBankFilter === 'all'
+    ? bankQuestions
+    : bankQuestions.filter(q => q.t === currentBankFilter);
+
+  const labelMap = { t1:'Tema 1', atm:'Atmósfera', agua:'Agua', residuos:'Residuos' };
+  let html = '';
+  filtered.forEach((item, i) => {
+    html += `<div class="bank-item">
+      <div class="bank-item-num">❓ Pregunta ${i+1} · <span class="tag tag-green">${labelMap[item.t] || item.t}</span></div>
+      <div class="bank-item-q">${item.q}</div>
+      <button class="bank-toggle" onclick="toggleQB(this)">Ver respuesta</button>
+      <div class="bank-item-a">${item.a}</div>
+    </div>`;
+  });
+  document.getElementById('question-bank').innerHTML = html;
+  document.getElementById('bank-count').textContent = `Mostrando ${filtered.length} pregunta${filtered.length !== 1 ? 's' : ''}`;
+}
+
+function toggleQB(btn) {
+  const answerEl = btn.nextElementSibling;
+  answerEl.classList.toggle('show');
+  btn.textContent = answerEl.classList.contains('show') ? 'Ocultar respuesta' : 'Ver respuesta';
+}
+
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+  document.getElementById('back-to-top').classList.toggle('visible', doc.scrollTop > 300);
+});
+
+window.addEventListener('DOMContentLoaded', () => renderBank());
+</script>
+</body>
+</html>

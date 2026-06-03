@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test y Ejercicios — Medio Ambiente</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div class="hero">
+  <div class="hero-badge">Ciencias Ambientales · Grado</div>
+  <h1>Test y <span>Ejercicios</span></h1>
+  <p>Test tipo examen y ejercicios interactivos para poner a prueba tus conocimientos.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">30+</span><span class="lbl">Preguntas test</span></div>
+    <div class="hero-stat"><span class="num">4</span><span class="lbl">Tipos ejercicios</span></div>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-link">🏠 Inicio</a>
+  <a href="teoria.html" class="nav-link">📗 Teoría</a>
+  <a href="flashcards.html" class="nav-link">🃏 Flashcards</a>
+  <a href="test.html" class="nav-link active">🎯 Test</a>
+  <a href="banco.html" class="nav-link">📦 Banco</a>
+  <a href="casos-practicos.html" class="nav-link">🔬 Casos Prácticos</a>
+  <a href="ia.html" class="nav-link">🤖 IA</a>
+</nav>
+
+<nav class="theory-subnav" id="test-tabs">
+  <button class="nav-btn active" onclick="switchTab('test')">🎯 Test</button>
+  <button class="nav-btn" onclick="switchTab('ejercicios')">✏️ Ejercicios</button>
+</nav>
+
+<main>
+
+<!-- ============================================================
+     TEST DE PREGUNTAS
+     ============================================================ -->
+<div id="test" class="section active">
+  <p class="section-subtitle">Test</p>
+  <h1 class="section-title">Test de Evaluación</h1>
+  <div class="card">
+    <div class="quiz-header">
+      <div>
+        <div class="progress-bar" style="width:300px;max-width:100%">
+          <div class="progress-fill" id="quiz-progress-bar" style="width:0%"></div>
+        </div>
+        <div class="quiz-progress" id="quiz-progress-text">Elige un test para comenzar</div>
+      </div>
+      <div class="quiz-score-badge" id="quiz-score-display">⭐ 0 / 0</div>
+    </div>
+    <div id="quiz-container">
+      <div style="text-align:center;padding:40px">
+        <p style="color:var(--text2);font-size:15px;margin-bottom:24px">Elige el tipo de test que quieres hacer:</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px">
+          <button class="btn" onclick="startQuiz('all', 15)">📚 Test completo (15 preguntas)</button>
+          <button class="btn btn-secondary" onclick="startQuiz('t1', 10)">🌱 Solo Tema 1 (10 preguntas)</button>
+          <button class="btn btn-secondary" onclick="startQuiz('t2atm', 10)">💨 Solo Atmósfera</button>
+          <button class="btn btn-secondary" onclick="startQuiz('t2agua', 10)">💧 Solo Agua</button>
+          <button class="btn btn-secondary" onclick="startQuiz('t2res', 10)">♻️ Solo Residuos</button>
+        </div>
+      </div>
+    </div>
+    <div class="score-summary" id="quiz-summary">
+      <div class="score-big" id="final-score">--</div>
+      <div class="score-label" id="final-label">Test completado</div>
+      <div class="score-msg" id="final-msg"></div>
+      <div style="margin-top:20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+        <button class="btn" onclick="startQuiz('all', 15)">🔄 Repetir test</button>
+        <button class="btn btn-secondary" onclick="switchTab('ejercicios')">✏️ Hacer ejercicios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     EJERCICIOS INTERACTIVOS
+     ============================================================ -->
+<div id="ejercicios" class="section">
+  <p class="section-subtitle">Ejercicios</p>
+  <h1 class="section-title">Ejercicios Interactivos</h1>
+
+  <div class="card card-accent">
+    <h2>Verdadero o Falso</h2>
+    <p>Indica si cada afirmación es verdadera o falsa:</p>
+    <div id="tf-container"></div>
+    <div style="margin-top:16px">
+      <button class="btn btn-secondary" onclick="resetTF()">🔄 Reiniciar</button>
+      <span id="tf-score" style="margin-left:16px;font-family:var(--mono);font-size:13px;color:var(--accent)"></span>
+    </div>
+  </div>
+
+  <div class="card card-blue">
+    <h2>Relacionar Conceptos</h2>
+    <p>Haz clic en un término de la columna izquierda y luego en su definición en la derecha:</p>
+    <div class="matching-grid">
+      <div id="match-terms"></div>
+      <div id="match-defs"></div>
+    </div>
+    <div id="match-feedback" style="margin-top:12px;font-size:14px;color:var(--text3)"></div>
+    <button class="btn btn-secondary" onclick="resetMatching()" style="margin-top:12px">🔄 Reiniciar</button>
+  </div>
+
+  <div class="card card-gold">
+    <h2>Completar las Frases</h2>
+    <p>Escribe la palabra o concepto correcto en cada hueco:</p>
+    <div id="fillblank-container"></div>
+    <div class="quiz-actions">
+      <button class="btn" onclick="checkFillBlanks()">Comprobar respuestas</button>
+      <button class="btn btn-secondary" onclick="resetFillBlanks()">🔄 Reiniciar</button>
+      <span id="fill-score" style="font-family:var(--mono);font-size:13px;color:var(--accent)"></span>
+    </div>
+  </div>
+
+  <div class="card card-red">
+    <h2>Ordenar la Jerarquía de Residuos</h2>
+    <p>¿En qué orden se deben gestionar los residuos de mejor a peor opción según el principio 3RVE? (Del 1 = mejor al 5 = peor)</p>
+    <div id="hierarchy-exercise" style="margin-top:14px"></div>
+    <button class="btn" onclick="checkHierarchy()" style="margin-top:14px">Comprobar</button>
+    <button class="btn btn-secondary" onclick="initHierarchy()" style="margin-top:14px">🔄 Reiniciar</button>
+    <div id="hierarchy-feedback" style="margin-top:12px;font-size:14px;color:var(--text3)"></div>
+  </div>
+</div>
+
+</main>
+
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#test-tabs .nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabMap = { 'test': 0, 'ejercicios': 1 };
+  document.querySelectorAll('#test-tabs .nav-btn')[tabMap[id]].classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ============================================================
+// QUIZ DATA
+// ============================================================
+const allQuestions = [
+  {t:'t1', q:'¿Cuándo y dónde se estableció la 1ª definición de Medio Ambiente?', opts:['1972 en Estocolmo','1987 en Montreal','1992 en Río de Janeiro','1980 en Nueva York'], ans:0, exp:'La 1ª definición oficial de Medio Ambiente se estableció en la Conferencia de las Naciones Unidas (UNEP) en Estocolmo en 1972.'},
+  {t:'t1', q:'¿Cuántos Objetivos de Desarrollo Sostenible existen?', opts:['10','15','17','20'], ans:2, exp:'Son 17 ODS establecidos el 25 de septiembre de 2015, con horizonte de cumplimiento en 2030.'},
+  {t:'t1', q:'¿Qué documento de 1987 popularizó el concepto de Desarrollo Sostenible?', opts:['Protocolo de Montreal','Informe Brundtland','Declaración de Río','Agenda 21'], ans:1, exp:'El Informe Brundtland (1987) fue clave para el inicio del estudio del desarrollo sostenible y definió el concepto de forma canónica.'},
+  {t:'t1', q:'¿Qué capa de la Tierra incluye mares, ríos y acuíferos?', opts:['Litosfera','Atmósfera','Hidrosfera','Biosfera'], ans:2, exp:'La Hidrosfera comprende las aguas superficiales y subterráneas: mares, ríos y acuíferos.'},
+  {t:'t1', q:'¿Cuál es la acción de la Administración más costosa de implementar?', opts:['El castigo','El premio','La persuasión','La inacción vigilante'], ans:2, exp:'La persuasión requiere inversión pública en acciones de formación, sensibilización y educación cívica, lo que supone un coste continuo.'},
+  {t:'t1', q:'¿Qué acuerdo firmado en 1992 creó la Agenda 21?', opts:['Protocolo de Kioto','Cumbre de Río','Protocolo de Montreal','Cumbre de Johannesburgo'], ans:1, exp:'La Cumbre de Río de 1992 (1ª COP) elaboró la Declaración de Río y la Agenda 21.'},
+  {t:'t1', q:'¿Qué estudia el Análisis de Ciclo de Vida (ACV)?', opts:['Solo la fase de uso de un producto','Las cargas ambientales de toda la cadena de vida de un producto','Solo las emisiones de CO₂','Los costes económicos de producción'], ans:1, exp:'El ACV evalúa las cargas ambientales desde la materia prima hasta el final de vida, cuantificando uso de energía, materiales y emisiones.'},
+  {t:'t1', q:'¿Cuál es la diferencia entre bioacumulación del mercurio y los vertidos de petróleo?', opts:['El mercurio se acumula en organismos mientras el petróleo solo afecta a la superficie','Son iguales en sus efectos','El petróleo se acumula en tejidos y el mercurio no','El mercurio solo afecta al agua dulce'], ans:0, exp:'El mercurio es bioacumulable, se acumula en los organismos vivos a través de la cadena trófica. El petróleo principalmente forma películas superficiales.'},
+  {t:'t2atm', q:'¿Cuál es un ejemplo de contaminante secundario?', opts:['CO₂ de un coche','SO₂ de una chimenea','NO₂ formado en la atmósfera','Partículas de polvo industrial'], ans:2, exp:'El NO₂ es secundario porque no se emite directamente; se forma en la atmósfera a partir del NO (contaminante primario) por transformaciones fotoquímicas.'},
+  {t:'t2atm', q:'¿Qué medida de control es la más barata y eficaz?', opts:['Medidas secundarias (filtros)','Medidas primarias (modificar el proceso)','Prevención de la contaminación (antes del proceso)','Mejora de la dispersión con chimeneas altas'], ans:2, exp:'La prevención es lo más recomendable, eficaz y barato ya que actúa antes de que se genere el contaminante.'},
+  {t:'t2atm', q:'¿A partir de qué temperatura reacciona el N₂ y genera NOx?', opts:['800°C','1000°C','1300°C','1500°C'], ans:2, exp:'El N₂ reacciona a temperaturas superiores a 1300°C, donde deja de ser inerte.'},
+  {t:'t2atm', q:'¿Para qué tamaño de partícula son eficientes las cámaras de sedimentación?', opts:['d ≥ 0,1 μm','d ≥ 5 μm','d ≥ 10 μm','d ≥ 50 μm'], ans:3, exp:'Las cámaras de sedimentación son eficientes solo para partículas grandes de d ≥ 50 μm. Por eso se usan como pretratamiento.'},
+  {t:'t2atm', q:'¿Qué gas ionizante es necesario para un precipitador electrostático?', opts:['Solo N₂','Solo CH₄','H₂O, CO₂, SO₂ o O₂ (cualquiera de ellos)','Solo CO₂'], ans:2, exp:'El precipitador electrostático requiere al menos uno de los siguientes gases ionizantes: H₂O, CO₂, SO₂ u O₂.'},
+  {t:'t2atm', q:'¿Por qué los filtros de mangas SOLO se usan con corrientes secas?', opts:['Porque el material se corrode con agua','Porque la humedad formaría un pegote que obstruiría las mangas','Porque la temperatura húmeda rompe las fibras','Porque se necesitan gases ionizantes'], ans:1, exp:'Si las mangas se humedecen, el polvo y la humedad forman un pegote que obstruye completamente el filtro.'},
+  {t:'t2atm', q:'¿Cuál es el adsorbente más eficiente?', opts:['Gel de sílice','Alúmina activada','Carbón activo','Zeolitas'], ans:2, exp:'El carbón activo es el principal y más eficiente adsorbente. Nanoporoso, eficiencia: 95-99%. Especialmente para COVs y disolventes orgánicos.'},
+  {t:'t2atm', q:'¿Cuándo se producen las 3 catástrofes históricas de smog mencionadas?', opts:['1910, 1930, 1950','1930 (Bélgica), 1948 (EE.UU.), 1952 (Londres)','1945, 1950, 1960','1920, 1940, 1960'], ans:1, exp:'Valle del Meuse (Bélgica, 1930), Donora Pennsylvania (EE.UU., 1948) y "El gran smog de Londres" (1952).'},
+  {t:'t2agua', q:'¿Qué indica una relación DBO/DQO < 0,2?', opts:['El agua es fácilmente tratable biológicamente','Predominio de materia orgánica biodegradable','Predominio de contaminantes inorgánicos no biodegradables','El agua no necesita tratamiento'], ans:2, exp:'Una relación DBO/DQO < 0,2 indica predominio de contaminantes inorgánicos no biodegradables (agua poco biodegradable).'},
+  {t:'t2agua', q:'¿Qué es la eutrofización?', opts:['Aumento de la salinidad del agua','Crecimiento excesivo de algas por exceso de N y P que consume O₂','Contaminación por metales pesados','Aumento de temperatura del agua'], ans:1, exp:'La eutrofización es el crecimiento excesivo de algas y plantas acuáticas provocado por exceso de nutrientes (N y P).'},
+  {t:'t2agua', q:'¿Cuál es la fuente de contaminación de mayor impacto en el agua?', opts:['Urbana','Agrícola','Industrial','Vertederos'], ans:2, exp:'La fuente industrial es la de mayor impacto, por la gran variedad de contaminantes: metales pesados, cambios de pH/T, radiactividad, aceites y grasas.'},
+  {t:'t2agua', q:'¿Para qué tipo de núcleos urbanos son aptas las tecnologías blandas?', opts:['Cualquier tamaño','Menos de 15.000 hab.','Más de 50.000 hab.','Solo ciudades industriales'], ans:1, exp:'Las tecnologías blandas son aplicables a vertidos totalmente degradables sin componente industrial, en núcleos de menos de 15.000 habitantes.'},
+  {t:'t2agua', q:'¿Qué efecto tiene el aumento de temperatura en el O₂ disuelto del agua?', opts:['Aumenta la solubilidad del O₂','No tiene efecto','Disminuye la solubilidad del O₂','Solo afecta a la densidad del agua'], ans:2, exp:'El aumento de temperatura disminuye la solubilidad del O₂ en el agua, lo que reduce el O₂ disponible para los seres vivos.'},
+  {t:'t2agua', q:'¿Qué es la bioacumulación?', opts:['La degradación de contaminantes por bacterias','La acumulación de compuestos tóxicos en los organismos a lo largo de la cadena trófica','El proceso de filtración natural del suelo','La fotosíntesis de algas contaminadas'], ans:1, exp:'La bioacumulación es el proceso por el que ciertos contaminantes (como metales pesados Hg, Pb, Cd) se acumulan y concentran en la cadena trófica.'},
+  {t:'t2res', q:'¿Cuál es el orden correcto de la jerarquía de gestión de residuos (de mejor a peor)?', opts:['Reciclar → Reducir → Eliminar → Valorizar','Prevención → Preparación reutilización → Reciclado → Valorización → Eliminación','Eliminar → Valorizar → Reciclar → Reducir','Reciclado → Valorización → Prevención → Eliminación'], ans:1, exp:'La jerarquía 3RVE: Prevención → Preparación para reutilización → Reciclado → Valorización → Eliminación (vertedero).'},
+  {t:'t2res', q:'¿Qué fórmula calcula la Fracción Biodegradable?', opts:['FB = 0,83 + 0,028 · CL','FB = 0,83 − 0,028 · CL','FB = 0,28 · CL / 0,83','FB = CL / (0,83 × 0,028)'], ans:1, exp:'FB = 0,83 − 0,028 · CL, donde CL es el contenido en lignina. A mayor lignina, menor FB y menor biodegradabilidad.'},
+  {t:'t2res', q:'¿Cuál es la diferencia entre reciclado secundario y terciario?', opts:['El secundario es químico y el terciario mecánico','El secundario es físico (el material no cambia) y el terciario es químico (el polímero se descompone en monómeros)','El secundario es solo para papel y el terciario para vidrio','No hay diferencia'], ans:1, exp:'Reciclado 2º (mecánico/físico): el mismo material entra y sale. Reciclado 3º (químico): solo para polímeros, se descompone en monómeros.'},
+  {t:'t2res', q:'¿Cuándo se prefiere biometanización sobre compostaje?', opts:['Cuando hay alta FB y poca humedad','Cuando hay baja FB y/o hay demasiada humedad (el O₂ no puede pasar)','Siempre que sea posible','Cuando el residuo tiene metales pesados'], ans:1, exp:'La biometanización se aplica cuando hay baja FB o cuando hay demasiada humedad que impide el paso del O₂ necesario para el compostaje aeróbico.'},
+  {t:'t2res', q:'¿Qué son los residuos inertes?', opts:['Residuos que no contaminan pero pueden sufrir transformaciones','Residuos que no sufren reacciones ni transformaciones, no solubles, no combustibles, no biodegradables','Residuos con características peligrosas','Residuos asimilables a urbanos'], ans:1, exp:'Los inertes son residuos que no sufren ningún tipo de reacción o transformación, no solubles, no combustibles, no reactivos, no biodegradables.'},
+  {t:'t2res', q:'¿Qué indica el asterisco (*) en un código LER?', opts:['Que el residuo es inerte','Que el residuo es peligroso (RTP)','Que el residuo debe incinerarse','Que el residuo proviene de la industria'], ans:1, exp:'El asterisco (*) en el código LER indica que el residuo es peligroso (RTP). Incluye envases que hayan contenido sustancias peligrosas.'},
+  {t:'t2res', q:'¿Qué ventajas tiene la incineración de residuos?', opts:['Genera residuos sólidos peligrosos','Reduce el volumen y obtiene energía (valorización energética)','Es la opción más barata de todas','No genera emisiones gaseosas'], ans:1, exp:'La incineración sirve para obtener energía (valorización energética) antes del vertedero y reduce considerablemente el volumen.'},
+];
+
+let quizState = { questions: [], current: 0, score: 0, answered: false };
+
+function startQuiz(tema, n) {
+  let pool = tema === 'all' ? [...allQuestions] : allQuestions.filter(q => q.t === tema);
+  pool = shuffleArray(pool).slice(0, Math.min(n, pool.length));
+  quizState = { questions: pool, current: 0, score: 0, answered: false };
+  document.getElementById('quiz-summary').classList.remove('show');
+  showQuizQuestion();
+}
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function showQuizQuestion() {
+  const { questions, current, score } = quizState;
+  if (current >= questions.length) { showQuizSummary(); return; }
+  const q = questions[current];
+  const total = questions.length;
+  document.getElementById('quiz-progress-bar').style.width = ((current / total) * 100) + '%';
+  document.getElementById('quiz-progress-text').textContent = `Pregunta ${current + 1} de ${total}`;
+  document.getElementById('quiz-score-display').textContent = `⭐ ${score} / ${current}`;
+
+  const labels = ['A', 'B', 'C', 'D'];
+  let html = `<div class="question-box">
+    <div class="question-num">PREGUNTA ${current + 1} DE ${total}</div>
+    <div class="question-text">${q.q}</div>
+    <div class="options" id="options-container">`;
+  q.opts.forEach((opt, i) => {
+    html += `<button class="option-btn" onclick="selectAnswer(${i}, ${q.ans}, \`${opt.replace(/`/g,'\\`')}\`)">
+      <span class="option-letter">${labels[i]}</span>
+      <span>${opt}</span>
+    </button>`;
+  });
+  html += `</div>
+    <div class="feedback-box" id="feedback-box"></div>
+  </div>
+  <div class="quiz-actions">
+    <button class="btn btn-secondary" id="next-btn" onclick="nextQuestion()" style="display:none">Siguiente →</button>
+  </div>`;
+  document.getElementById('quiz-container').innerHTML = html;
+  quizState.answered = false;
+}
+
+function selectAnswer(selected, correct, text) {
+  if (quizState.answered) return;
+  quizState.answered = true;
+  const buttons = document.querySelectorAll('.option-btn');
+  const q = quizState.questions[quizState.current];
+  const isCorrect = selected === correct;
+  if (isCorrect) quizState.score++;
+
+  buttons.forEach(btn => {
+    btn.disabled = true;
+    const btnText = btn.querySelector('span:last-child').textContent;
+    if (btnText === q.opts[correct]) btn.classList.add('correct');
+    if (btnText === text && !isCorrect) btn.classList.add('wrong');
+  });
+
+  const fb = document.getElementById('feedback-box');
+  fb.classList.add('show');
+  fb.classList.add(isCorrect ? 'correct-fb' : 'wrong-fb');
+  fb.innerHTML = `<span class="feedback-icon">${isCorrect ? '✅' : '❌'}</span> <strong>${isCorrect ? '¡Correcto!' : 'Incorrecto.'}</strong> ${q.exp}`;
+  document.getElementById('next-btn').style.display = 'inline-block';
+  document.getElementById('quiz-score-display').textContent = `⭐ ${quizState.score} / ${quizState.current + 1}`;
+}
+
+function nextQuestion() { quizState.current++; showQuizQuestion(); }
+
+function showQuizSummary() {
+  document.getElementById('quiz-container').innerHTML = '';
+  document.getElementById('quiz-progress-bar').style.width = '100%';
+  const { score, questions } = quizState;
+  const total = questions.length;
+  const pct = Math.round((score / total) * 100);
+  document.getElementById('final-score').textContent = `${score}/${total}`;
+  document.getElementById('final-label').textContent = `${pct}% de respuestas correctas`;
+  let msg = '';
+  if (pct >= 90) msg = '🏆 ¡Excelente! Dominas muy bien el contenido.';
+  else if (pct >= 70) msg = '👍 Muy bien. Repasa los conceptos que fallaste.';
+  else if (pct >= 50) msg = '📚 Aprobado. Conviene repasar con más detalle.';
+  else msg = '💪 Sigue estudiando. Repasa las secciones del temario.';
+  document.getElementById('final-msg').textContent = msg;
+  document.getElementById('quiz-summary').classList.add('show');
+}
+
+// ============================================================
+// VERDADERO O FALSO
+// ============================================================
+const tfQuestions = [
+  {s:'El Informe Brundtland define el Desarrollo Sostenible como el que satisface las necesidades actuales sin comprometer las generaciones futuras.', ans:true, exp:'Correcto. Esta es la definición canónica del Informe Brundtland (1987).'},
+  {s:'La 1ª definición oficial de Medio Ambiente se estableció en la Cumbre de Río de 1992.', ans:false, exp:'Falso. Fue en la Conferencia de Estocolmo en 1972.'},
+  {s:'Los contaminantes secundarios se emiten directamente a la atmósfera por las fuentes de emisión.', ans:false, exp:'Falso. Los secundarios se forman EN la atmósfera a partir de transformaciones de contaminantes primarios.'},
+  {s:'Los filtros de mangas funcionan mejor con corrientes de gas húmedo.', ans:false, exp:'Falso. Los filtros de mangas son SOLO para corrientes secas. La humedad formaría un pegote que obstruiría las mangas.'},
+  {s:'La relación DBO/DQO > 0,5 indica predominio de materia orgánica biodegradable.', ans:true, exp:'Correcto. Una relación alta DBO/DQO indica que la mayor parte de la materia orgánica es biodegradable (tratable biológicamente).'},
+  {s:'La biometanización es un proceso aeróbico que produce compost.', ans:false, exp:'Falso. La biometanización es un proceso ANAERÓBICO (sin O₂). Produce biogás y digestato. El compostaje sí es aeróbico.'},
+  {s:'A mayor diámetro del ciclón, mayor eficiencia en la separación de partículas.', ans:false, exp:'Falso. Es al contrario: a MENOR diámetro del ciclón, mayor eficiencia (mayor aceleración radial).'},
+  {s:'La Fracción Biodegradable (FB) aumenta con el contenido de lignina.', ans:false, exp:'Falso. FB = 0,83 − 0,028 · CL. A mayor contenido de lignina (CL), MENOR fracción biodegradable.'},
+  {s:'Los precipitadores electrostáticos pueden funcionar con corrientes de gas húmedo si contienen H₂O.', ans:true, exp:'Correcto. El H₂O es un gas ionizante, que es el requisito del precipitador electrostático.'},
+  {s:'La eutrofización se produce por falta de nutrientes en el agua.', ans:false, exp:'Falso. La eutrofización se produce por EXCESO de nutrientes (N y P), que provoca crecimiento excesivo de algas y consumo de O₂.'},
+];
+
+let tfState = {};
+function initTF() {
+  tfState = {};
+  let html = '';
+  tfQuestions.forEach((item, i) => {
+    html += `<div class="tf-question" id="tf-${i}" style="margin-bottom:16px">
+      <div class="question-text" style="font-size:14px;margin-bottom:8px">${i+1}. ${item.s}</div>
+      <div class="tf-options">
+        <button class="tf-btn" id="tf-v-${i}" onclick="answerTF(${i}, true)">✅ Verdadero</button>
+        <button class="tf-btn" id="tf-f-${i}" onclick="answerTF(${i}, false)">❌ Falso</button>
+      </div>
+      <div class="feedback-box" id="tf-fb-${i}"></div>
+    </div>`;
+  });
+  document.getElementById('tf-container').innerHTML = html;
+  document.getElementById('tf-score').textContent = '';
+}
+
+function answerTF(i, val) {
+  if (tfState[i] !== undefined) return;
+  tfState[i] = val;
+  const item = tfQuestions[i];
+  const isCorrect = val === item.ans;
+  const vBtn = document.getElementById(`tf-v-${i}`);
+  const fBtn = document.getElementById(`tf-f-${i}`);
+  vBtn.disabled = fBtn.disabled = true;
+  if (item.ans === true) vBtn.classList.add('correct-tf');
+  else fBtn.classList.add('correct-tf');
+  if (!isCorrect) (val ? vBtn : fBtn).classList.add('wrong-tf');
+  const fb = document.getElementById(`tf-fb-${i}`);
+  fb.classList.add('show', isCorrect ? 'correct-fb' : 'wrong-fb');
+  fb.innerHTML = `${isCorrect ? '✅' : '❌'} ${item.exp}`;
+  const answered = Object.keys(tfState).length;
+  const correct = Object.entries(tfState).filter(([idx, v]) => v === tfQuestions[idx].ans).length;
+  if (answered > 0) document.getElementById('tf-score').textContent = `Puntuación: ${correct}/${answered}`;
+}
+
+function resetTF() { initTF(); }
+
+// ============================================================
+// MATCHING
+// ============================================================
+const matchPairs = [
+  {term:'Inmisión', def:'Concentración de contaminantes a nivel del suelo tras ser dispersados'},
+  {term:'ACV', def:'Análisis de las cargas ambientales de un producto a lo largo de todo su ciclo'},
+  {term:'DBO₅', def:'O₂ que necesitan las bacterias aerobias para degradar MO biodegradable en 5 días'},
+  {term:'FB (Fracción Biodegradable)', def:'FB = 0,83 − 0,028 · CL. Mide el % del residuo que es biodegradable'},
+  {term:'Eutrofización', def:'Deterioro del agua por exceso de N y P que provoca proliferación de algas'},
+  {term:'Contaminante secundario', def:'Formado en la atmósfera por transformaciones de contaminantes primarios'},
+];
+let matchSelected = null;
+let matchCorrect = new Set();
+
+function initMatching() {
+  matchSelected = null;
+  matchCorrect = new Set();
+  const shuffledDefs = shuffleArray(matchPairs.map((p, i) => ({text: p.def, idx: i})));
+  let termsHtml = '', defsHtml = '';
+  matchPairs.forEach((p, i) => {
+    termsHtml += `<div class="match-item" id="mt-${i}" onclick="selectMatchTerm(${i})">${p.term}</div>`;
+  });
+  shuffledDefs.forEach((d) => {
+    defsHtml += `<div class="match-item" id="md-${d.idx}" onclick="selectMatchDef(${d.idx})">${d.text}</div>`;
+  });
+  document.getElementById('match-terms').innerHTML = termsHtml;
+  document.getElementById('match-defs').innerHTML = defsHtml;
+  document.getElementById('match-feedback').textContent = 'Selecciona un término de la izquierda y luego su definición de la derecha.';
+}
+
+function selectMatchTerm(idx) {
+  if (matchCorrect.has(idx)) return;
+  document.querySelectorAll('[id^="mt-"]').forEach(el => el.classList.remove('selected'));
+  matchSelected = idx;
+  document.getElementById(`mt-${idx}`).classList.add('selected');
+}
+
+function selectMatchDef(idx) {
+  if (matchCorrect.has(idx) || matchSelected === null) return;
+  const termEl = document.getElementById(`mt-${matchSelected}`);
+  const defEl = document.getElementById(`md-${idx}`);
+  if (matchSelected === idx) {
+    matchCorrect.add(idx);
+    termEl.classList.remove('selected');
+    termEl.classList.add('matched');
+    defEl.classList.add('matched');
+    document.getElementById('match-feedback').textContent = matchCorrect.size === matchPairs.length
+      ? '🏆 ¡Excelente! Has conectado todos los pares correctamente.'
+      : `✅ Correcto: "${matchPairs[idx].term}"`;
+  } else {
+    termEl.classList.add('wrong-match');
+    defEl.classList.add('wrong-match');
+    setTimeout(() => {
+      termEl.classList.remove('wrong-match', 'selected');
+      defEl.classList.remove('wrong-match');
+      document.getElementById('match-feedback').textContent = '❌ Incorrecto. Intenta de nuevo.';
+    }, 1000);
+  }
+  matchSelected = null;
+}
+
+function resetMatching() { initMatching(); }
+
+// ============================================================
+// FILL IN THE BLANKS
+// ============================================================
+const fillItems = [
+  {sent:'La definición de Desarrollo Sostenible del Informe Brundtland dice que satisface las necesidades actuales sin comprometer la capacidad de las generaciones _____ para satisfacer sus propias necesidades.', blank:'futuras', alt:['futura']},
+  {sent:'La Fracción Biodegradable se calcula como FB = 0,83 − _____ · CL.', blank:'0,028', alt:['0028']},
+  {sent:'Los precipitadores electrostáticos requieren gases _____ como H₂O, CO₂, SO₂ o O₂.', blank:'ionizantes', alt:['ionizantes']},
+  {sent:'En la biometanización anaeróbica se produce _____, que tiene alto poder calorífico.', blank:'biogás', alt:['biogas']},
+  {sent:'La relación DBO/DQO inferior a 0,2 indica predominio de contaminantes _____ no biodegradables.', blank:'inorgánicos', alt:['inorganicos']},
+  {sent:'Los filtros de mangas solo se usan con corrientes _____, ya que la humedad forma un pegote que los obstruye.', blank:'secas', alt:['seca']},
+];
+
+function initFillBlanks() {
+  let html = '';
+  fillItems.forEach((item, i) => {
+    const parts = item.sent.split('_____');
+    html += `<div style="margin-bottom:16px"><span class="fill-sentence">${parts[0]}<input class="blank-input" id="fill-${i}" type="text" placeholder="..."/>${parts[1]}</span></div>`;
+  });
+  document.getElementById('fillblank-container').innerHTML = html;
+  document.getElementById('fill-score').textContent = '';
+}
+
+function checkFillBlanks() {
+  let correct = 0;
+  fillItems.forEach((item, i) => {
+    const input = document.getElementById(`fill-${i}`);
+    const val = input.value.trim().toLowerCase();
+    const correctAnswers = [item.blank.toLowerCase(), ...(item.alt || []).map(a => a.toLowerCase())];
+    input.classList.remove('correct-blank', 'wrong-blank');
+    if (correctAnswers.includes(val)) { input.classList.add('correct-blank'); correct++; }
+    else { input.classList.add('wrong-blank'); input.value = item.blank; }
+  });
+  document.getElementById('fill-score').textContent = `Puntuación: ${correct}/${fillItems.length}`;
+}
+
+function resetFillBlanks() { initFillBlanks(); }
+
+// ============================================================
+// HIERARCHY EXERCISE
+// ============================================================
+const hierarchyItems = [
+  {text:'♻️ Reciclado', correct:3},
+  {text:'🔝 Prevención', correct:1},
+  {text:'🗑️ Eliminación (vertedero)', correct:5},
+  {text:'⚡ Valorización energética', correct:4},
+  {text:'🔄 Preparación para reutilización', correct:2},
+];
+
+function initHierarchy() {
+  const shuffled = shuffleArray([...hierarchyItems]);
+  let html = '<p style="color:var(--text3);font-size:13px;margin-bottom:10px">Asigna el orden (1=mejor, 5=peor) a cada opción:</p>';
+  shuffled.forEach((item, i) => {
+    html += `<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <select id="heir-${i}" style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:4px;font-size:14px">
+        <option value="">-</option>
+        ${[1,2,3,4,5].map(n => `<option value="${n}">${n}</option>`).join('')}
+      </select>
+      <span style="font-size:14px;color:var(--text2)">${item.text}</span>
+      <span id="heir-mark-${i}" style="font-size:16px"></span>
+    </div>`;
+  });
+  document.getElementById('hierarchy-exercise').innerHTML = html;
+  document.getElementById('hierarchy-exercise').dataset.order = JSON.stringify(shuffled.map(s => s.correct));
+  document.getElementById('hierarchy-feedback').textContent = '';
+}
+
+function checkHierarchy() {
+  const correctOrder = JSON.parse(document.getElementById('hierarchy-exercise').dataset.order);
+  let correct = 0;
+  correctOrder.forEach((corr, i) => {
+    const val = parseInt(document.getElementById(`heir-${i}`).value);
+    const mark = document.getElementById(`heir-mark-${i}`);
+    if (val === corr) { mark.textContent = '✅'; correct++; }
+    else { mark.textContent = `❌ (correcto: ${corr})`; mark.style.color = 'var(--red)'; mark.style.fontSize = '13px'; }
+  });
+  document.getElementById('hierarchy-feedback').textContent = correct === correctOrder.length
+    ? '🏆 ¡Perfecto! La jerarquía correcta es: 1.Prevención 2.Preparación reutilización 3.Reciclado 4.Valorización 5.Eliminación.'
+    : `Resultado: ${correct}/${correctOrder.length} correctos. La jerarquía correcta es: 1.Prevención 2.Preparación reutilización 3.Reciclado 4.Valorización 5.Eliminación.`;
+}
+
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+  document.getElementById('back-to-top').classList.toggle('visible', doc.scrollTop > 300);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  initTF();
+  initMatching();
+  initFillBlanks();
+  initHierarchy();
+});
+</script>
+</body>
+</html>
