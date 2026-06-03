@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teoría — Medio Ambiente</title>
 <link rel="stylesheet" href="css/estilos.css">
+<style>
+.agua-panel { display: none; }
+.agua-panel.active { display: block; animation: fadeIn 0.25s ease; }
+#agua-tabs { margin: 0 0 24px 0; }
+</style>
 </head>
 <body>
 
@@ -589,186 +594,596 @@
   <p class="section-subtitle">Tema 2 · Sección 2.1 Control de Efluentes Acuosos</p>
   <h1 class="section-title">Contaminación y Control del Agua</h1>
 
-  <div class="card card-blue">
-    <h2>1. Composición del Agua Natural</h2>
-    <p>El agua natural es incolora, inodora e insípida (puede variar según las sustancias presentes).</p>
-    <div class="grid-3">
-      <div class="mini-card"><h4>Sólidos</h4><div class="desc">Sales minerales disueltas, en suspensión o como coloides</div></div>
-      <div class="mini-card"><h4>Gases disueltos</h4><div class="desc">O₂, N₂, CO₂ (respiración), CH₄ y H₂S (descomposición de materia viva)</div></div>
-      <div class="mini-card"><h4>Microorganismos</h4><div class="desc">Bacterias, protozoos, virus, algas. Responsables de muchas reacciones en el agua.</div></div>
-    </div>
-    <div class="highlight">↑ Temperatura → ↓ Solubilidad de gases. Hay intercambio de gases entre hidrosfera, litosfera y atmósfera.</div>
-  </div>
+  <nav class="theory-subnav" id="agua-tabs">
+    <button class="nav-btn active" onclick="switchAguaTab(0)">💧 Composición y Fuentes</button>
+    <button class="nav-btn" onclick="switchAguaTab(1)">⚗️ Contaminantes</button>
+    <button class="nav-btn" onclick="switchAguaTab(2)">📏 Parámetros</button>
+    <button class="nav-btn" onclick="switchAguaTab(3)">🌿 Tec. Blandas</button>
+    <button class="nav-btn" onclick="switchAguaTab(4)">🏭 EDAR: Línea Agua</button>
+    <button class="nav-btn" onclick="switchAguaTab(5)">🧱 EDAR: Lodos y Gas</button>
+  </nav>
 
-  <div class="card card-red">
-    <h2>2. Contaminación de las Aguas</h2>
-    <div class="def-box">
-      <div class="def-term">Definición — Carta del Agua, Consejo de Europa (1968)</div>
-      <div class="def-text">Presencia de contaminantes en las aguas superficiales o subterráneas en cantidad y tiempo suficiente para provocar una <strong>modificación de la calidad del agua</strong>, haciéndola impropia o peligrosa para el consumo humano, la industria, la agricultura, la pesca y las actividades recreativas, así como para los animales domésticos y la vida natural.</div>
-    </div>
+  <!-- ── TAB 0: COMPOSICIÓN Y FUENTES ───────────────────────── -->
+  <div class="agua-panel active" id="agua-0">
 
-    <h3>2.1 Fuentes de Contaminación del Agua</h3>
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAcc(this)">
-        <span>🏠 Fuente Urbana</span><span class="accordion-icon">+</span>
+    <div class="card card-blue">
+      <h2>1. Composición del Agua Natural</h2>
+      <p>El agua natural es incolora, inodora e insípida (puede variar según las sustancias presentes).</p>
+      <div class="grid-3">
+        <div class="mini-card"><h4>Sólidos</h4><div class="desc">Sales minerales disueltas, en suspensión o como coloides</div></div>
+        <div class="mini-card"><h4>Gases disueltos</h4><div class="desc">O₂, N₂, CO₂ (respiración), CH₄ y H₂S (descomposición de materia viva)</div></div>
+        <div class="mini-card"><h4>Microorganismos</h4><div class="desc">Bacterias, protozoos, virus, algas. Responsables de muchas reacciones en el agua.</div></div>
       </div>
-      <div class="accordion-body">
-        <div class="accordion-body-inner">
-          · <strong>AR negras (fecales):</strong> ricas en materia orgánica → contaminación bacteriológica.<br>
-          · <strong>AR grises:</strong> disolventes y otros productos químicos → compuestos inorgánicos.
-        </div>
-      </div>
-    </div>
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAcc(this)">
-        <span>🛢️ Petróleo / Mareas Negras</span><span class="accordion-icon">+</span>
-      </div>
-      <div class="accordion-body">
-        <div class="accordion-body-inner">
-          La película de grasa <strong>evita completamente la fotosíntesis</strong> y rompe el equilibrio gaseoso.<br><br>
-          Consecuencias: muerte de organismos por ahogamiento (no hay intercambio de gases), muerte de algas, envenenamiento en cadenas tróficas.
-        </div>
-      </div>
-    </div>
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAcc(this)">
-        <span>🌾 Fuente Agrícola</span><span class="accordion-icon">+</span>
-      </div>
-      <div class="accordion-body">
-        <div class="accordion-body-inner">
-          Deriva del uso de <strong>biocidas, fertilizantes y abonos</strong> arrastrados con el agua de riego. Por <strong>lixiviación</strong> pueden contaminar aguas subterráneas.<br><br>
-          Los bionutrientes (N, P) sirven de comida a microorganismos → exceso de microorganismos → contaminación.
-        </div>
-      </div>
-    </div>
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAcc(this)">
-        <span>🏭 Fuente Industrial (mayor impacto)</span><span class="accordion-icon">+</span>
-      </div>
-      <div class="accordion-body">
-        <div class="accordion-body-inner">
-          La de <strong>mayor impacto</strong>, por la variedad de contaminantes: metales pesados, cambios de pH/T, radiactividad, aceites, grasas.<br><br>
-          Las industrias que usan agua de río con permisos deben reintegrarla <strong>en igual calidad y cantidad</strong>.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card card-gold">
-    <h2>3. Tipos de Contaminantes del Agua</h2>
-    <h3>3.A Físicos</h3>
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAcc(this)"><span>🌡️ Temperatura</span><span class="accordion-icon">+</span></div>
-      <div class="accordion-body"><div class="accordion-body-inner">
-        ↑ T → ↓ solubilidad O₂ → reducción del O₂ disponible.<br>
-        ↑ Cinética de reacciones químicas. ↓ Tensión superficial. ↑ Desarrollo de microorganismos.<br>
-        <strong>Causa:</strong> Empleo del agua como refrigerante en industrias y centrales eléctricas.
-      </div></div>
-    </div>
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAcc(this)"><span>💫 Sólidos en Suspensión (SS/MES)</span><span class="accordion-icon">+</span></div>
-      <div class="accordion-body"><div class="accordion-body-inner">
-        Aumento de la turbidez (afecta a la fotosíntesis). Modificación del olor y sabor. Alteraciones en las cadenas tróficas.<br>
-        <strong>Causas:</strong> erosión natural, explotaciones mineras, obras públicas, aguas residuales.
-      </div></div>
-    </div>
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAcc(this)"><span>☢️ Partículas Radiactivas</span><span class="accordion-icon">+</span></div>
-      <div class="accordion-body"><div class="accordion-body-inner">
-        Radiación α, β y γ de residuos nucleares. Los iones radiactivos se acumulan en el organismo → mutaciones o cáncer.
-      </div></div>
+      <div class="highlight">↑ Temperatura → ↓ Solubilidad de gases. Hay intercambio de gases entre hidrosfera, litosfera y atmósfera.</div>
     </div>
 
-    <h3>3.B Químicos</h3>
-    <h4>Inorgánicos:</h4>
-    <ul>
-      <li><strong>Bases y ácidos:</strong> variaciones de pH → afectan procesos biológicos y la corrosión</li>
-      <li><strong>Metales pesados</strong> (Hg, Pb, Cd): toxicidad, <strong>bioacumulación</strong> en cadenas tróficas</li>
-      <li><strong>Compuestos de N y P:</strong> → <strong>eutrofización</strong> (crecimiento excesivo de algas → consumo de O₂)</li>
-    </ul>
-    <h4>Orgánicos:</h4>
-    <ul>
-      <li><strong>Pesticidas:</strong> tóxicos, persistentes y bioacumulables</li>
-      <li><strong>Jabones y detergentes:</strong> espumas, consumen O₂, aportan fosfatos → eutrofización</li>
-      <li><strong>Grasas y aceites:</strong> impiden sedimentación y captación de O₂</li>
-    </ul>
-
-    <h3>3.C Biológicos</h3>
-    <div class="highlight-red">
-      Si <strong>E.coli &gt; 0</strong> → se activa protocolo de alerta sanitaria por contaminación fecal.<br><br>
-      <strong>Marea roja:</strong> proliferación masiva de microalgas tóxicas en el mar. Produce toxinas que se acumulan en moluscos bivalvos → intoxicaciones graves o mortales en humanos.
-    </div>
-  </div>
-
-  <div class="card card-accent">
-    <h2>7. Parámetros de Medición de Contaminantes</h2>
-    <table>
-      <thead>
-        <tr><th>Ensayo</th><th>Parámetro</th><th>Descripción</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1º</td><td><strong>Sólidos en suspensión (SS)</strong></td><td>SS = m' - m. Filtro poro 1,2μm. Unidad: mg/L (ppm)</td></tr>
-        <tr><td>2º</td><td><strong>Dureza total</strong></td><td>Sales de Ca²⁺, Mg²⁺, Fe y Mn. Expresado en mg CaCO₃/L.</td></tr>
-        <tr><td>3º</td><td><strong>Salinidad</strong></td><td>g de sal/kg de agua. Total de materia inorgánica disuelta.</td></tr>
-        <tr><td>4º</td><td><strong>pH</strong></td><td>Rango adecuado: 6,5 – 7,5.</td></tr>
-        <tr><td>5º</td><td><strong>Oxígeno disuelto (OD)</strong></td><td>mg O₂/L. Imprescindible para la vida. ↑ T antrópica → ↓ OD.</td></tr>
-        <tr><td>6º</td><td><strong>NT y PT</strong></td><td>Nitrógeno total y Fósforo total → responsables de eutrofización.</td></tr>
-        <tr><td>7º</td><td><strong>DQO y DBO₅</strong></td><td>Demanda Química y Bioquímica de Oxígeno. Cuantifican materia orgánica.</td></tr>
-      </tbody>
-    </table>
-
-    <div class="sep"></div>
-    <h3>DBO₅ vs DQO (Examen importante)</h3>
-    <div class="grid-2">
+    <div class="card card-red">
+      <h2>2. Contaminación de las Aguas</h2>
       <div class="def-box">
-        <div class="def-term">DBO₅ — Demanda Bioquímica de O₂ (5 días)</div>
-        <div class="def-text">Cantidad de O₂ (mg O₂/L) que necesitan las <strong>bacterias aerobias</strong> para oxidar toda la materia orgánica <strong>biodegradable</strong> presente en el agua. Mide solo lo biodegradable.</div>
+        <div class="def-term">Definición — Carta del Agua, Consejo de Europa (1968)</div>
+        <div class="def-text">Presencia de contaminantes en las aguas superficiales o subterráneas en cantidad y tiempo suficiente para provocar una <strong>modificación de la calidad del agua</strong>, haciéndola impropia o peligrosa para el consumo humano, la industria, la agricultura, la pesca y las actividades recreativas, así como para los animales domésticos y la vida natural.</div>
       </div>
-      <div class="def-box">
-        <div class="def-term">DQO — Demanda Química de O₂</div>
-        <div class="def-text">Cantidad de O₂ para oxidar la materia orgánica <strong>por medios químicos</strong> (dicromato potásico a 150°C / 120 min). Oxida todo lo oxidable, incluyendo materia no biodegradable.</div>
+
+      <h3>2.1 Fuentes de Contaminación del Agua</h3>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>🏠 Fuente Urbana</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            · <strong>AR negras (fecales):</strong> ricas en materia orgánica → contaminación bacteriológica.<br>
+            · <strong>AR grises:</strong> disolventes y otros productos químicos → compuestos inorgánicos.
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>🛢️ Petróleo / Mareas Negras</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            La película de grasa <strong>evita completamente la fotosíntesis</strong> y rompe el equilibrio gaseoso.<br><br>
+            Consecuencias: muerte de organismos por ahogamiento (no hay intercambio de gases), muerte de algas, envenenamiento en cadenas tróficas.
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>🌾 Fuente Agrícola</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            Deriva del uso de <strong>biocidas, fertilizantes y abonos</strong> arrastrados con el agua de riego. Por <strong>lixiviación</strong> pueden contaminar aguas subterráneas.<br><br>
+            Los bionutrientes (N, P) sirven de comida a microorganismos → exceso de microorganismos → contaminación.
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>🏭 Fuente Industrial (mayor impacto)</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            La de <strong>mayor impacto</strong>, por la variedad de contaminantes: metales pesados, cambios de pH/T, radiactividad, aceites, grasas.<br><br>
+            Las industrias que usan agua de río con permisos deben reintegrarla <strong>en igual calidad y cantidad</strong>.
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="highlight-gold">
-      <strong>Relación DBO/DQO:</strong><br>
-      · DBO/DQO &gt; 0,5 → predominio materia orgánica biodegradable (aguas fácilmente tratables).<br>
-      · DBO/DQO &lt; 0,2 → predominio de contaminantes inorgánicos no biodegradables (aguas poco biodegradables).
-    </div>
-
-    <div class="sep"></div>
-    <h2>8. Tratamiento de Aguas Residuales</h2>
-    <div class="flow">
-      <div class="flow-step">Río</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">ETAP (potabilización)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Consumo</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">EDAR (depuración)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Río</div>
-    </div>
-
-    <h3>8.1 Tecnologías Blandas / Naturales (no convencionales)</h3>
-    <p>Aplicables a vertidos totalmente degradables, sin componente industrial. Núcleos urbanos de <strong>menos de 15.000 habitantes</strong>.</p>
-    <div class="grid-2">
-      <div class="card card-accent" style="margin:0;">
-        <h4>✅ Ventajas</h4>
-        <ul>
-          <li>Ahorro energético</li><li>Menor coste de instalación y mantenimiento</li>
-          <li>No generan impacto visual</li><li>Baja producción de fangos</li>
-        </ul>
-      </div>
-      <div class="card card-red" style="margin:0;">
-        <h4>❌ Desventajas</h4>
-        <ul>
-          <li>Ocupan mayor superficie</li><li>Proceso lento de depuración</li>
-          <li>Volumen limitado de agua a tratar</li>
-        </ul>
-      </div>
-    </div>
   </div>
+
+  <!-- ── TAB 1: CONTAMINANTES ──────────────────────────────── -->
+  <div class="agua-panel" id="agua-1">
+
+    <div class="card card-gold">
+      <h2>3. Tipos de Contaminantes del Agua</h2>
+      <h3>3.A Físicos</h3>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)"><span>🌡️ Temperatura</span><span class="accordion-icon">+</span></div>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          ↑ T → ↓ solubilidad O₂ → reducción del O₂ disponible.<br>
+          ↑ Cinética de reacciones químicas. ↓ Tensión superficial. ↑ Desarrollo de microorganismos.<br>
+          <strong>Causa:</strong> Empleo del agua como refrigerante en industrias y centrales eléctricas.
+        </div></div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)"><span>💫 Sólidos en Suspensión (SS/MES)</span><span class="accordion-icon">+</span></div>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          Aumento de la turbidez (afecta a la fotosíntesis). Modificación del olor y sabor. Alteraciones en las cadenas tróficas.<br>
+          <strong>Causas:</strong> erosión natural, explotaciones mineras, obras públicas, aguas residuales.
+        </div></div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)"><span>☢️ Partículas Radiactivas</span><span class="accordion-icon">+</span></div>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          Radiación α, β y γ de residuos nucleares. Los iones radiactivos se acumulan en el organismo → mutaciones o cáncer.
+        </div></div>
+      </div>
+
+      <h3>3.B Químicos</h3>
+      <h4>Inorgánicos:</h4>
+      <ul>
+        <li><strong>Bases y ácidos:</strong> variaciones de pH → afectan procesos biológicos y la corrosión</li>
+        <li><strong>Metales pesados</strong> (Hg, Pb, Cd): toxicidad, <strong>bioacumulación</strong> en cadenas tróficas</li>
+        <li><strong>Compuestos de N y P:</strong> → <strong>eutrofización</strong> (crecimiento excesivo de algas → consumo de O₂)</li>
+      </ul>
+      <h4>Orgánicos:</h4>
+      <ul>
+        <li><strong>Pesticidas:</strong> tóxicos, persistentes y bioacumulables</li>
+        <li><strong>Jabones y detergentes:</strong> espumas, consumen O₂, aportan fosfatos → eutrofización</li>
+        <li><strong>Grasas y aceites:</strong> impiden sedimentación y captación de O₂</li>
+      </ul>
+
+      <h3>3.C Biológicos</h3>
+      <div class="highlight-red">
+        Si <strong>E.coli &gt; 0</strong> → se activa protocolo de alerta sanitaria por contaminación fecal.<br><br>
+        <strong>Marea roja:</strong> proliferación masiva de microalgas tóxicas en el mar. Produce toxinas que se acumulan en moluscos bivalvos → intoxicaciones graves o mortales en humanos.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── TAB 2: PARÁMETROS DE MEDICIÓN ─────────────────────── -->
+  <div class="agua-panel" id="agua-2">
+
+    <div class="card card-accent">
+      <h2>7. Parámetros de Medición de Contaminantes</h2>
+      <table>
+        <thead>
+          <tr><th>Ensayo</th><th>Parámetro</th><th>Descripción</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1º</td><td><strong>Sólidos en suspensión (SS)</strong></td><td>SS = m' - m. Filtro poro 1,2μm. Unidad: mg/L (ppm)</td></tr>
+          <tr><td>2º</td><td><strong>Dureza total</strong></td><td>Sales de Ca²⁺, Mg²⁺, Fe y Mn. Expresado en mg CaCO₃/L.</td></tr>
+          <tr><td>3º</td><td><strong>Salinidad</strong></td><td>g de sal/kg de agua. Total de materia inorgánica disuelta.</td></tr>
+          <tr><td>4º</td><td><strong>pH</strong></td><td>Rango adecuado: 6,5 – 7,5.</td></tr>
+          <tr><td>5º</td><td><strong>Oxígeno disuelto (OD)</strong></td><td>mg O₂/L. Imprescindible para la vida. ↑ T antrópica → ↓ OD.</td></tr>
+          <tr><td>6º</td><td><strong>NT y PT</strong></td><td>Nitrógeno total y Fósforo total → responsables de eutrofización.</td></tr>
+          <tr><td>7º</td><td><strong>DQO y DBO₅</strong></td><td>Demanda Química y Bioquímica de Oxígeno. Cuantifican materia orgánica.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="sep"></div>
+      <h3>DBO₅ vs DQO (Examen importante)</h3>
+      <div class="grid-2">
+        <div class="def-box">
+          <div class="def-term">DBO₅ — Demanda Bioquímica de O₂ (5 días)</div>
+          <div class="def-text">Cantidad de O₂ (mg O₂/L) que necesitan las <strong>bacterias aerobias</strong> para oxidar toda la materia orgánica <strong>biodegradable</strong> presente en el agua. Mide solo lo biodegradable.</div>
+        </div>
+        <div class="def-box">
+          <div class="def-term">DQO — Demanda Química de O₂</div>
+          <div class="def-text">Cantidad de O₂ para oxidar la materia orgánica <strong>por medios químicos</strong> (dicromato potásico a 150°C / 120 min). Oxida todo lo oxidable, incluyendo materia no biodegradable.</div>
+        </div>
+      </div>
+
+      <div class="highlight-gold">
+        <strong>Relación DBO/DQO:</strong><br>
+        · DBO/DQO &gt; 0,5 → predominio materia orgánica biodegradable (aguas fácilmente tratables).<br>
+        · DBO/DQO &lt; 0,2 → predominio de contaminantes inorgánicos no biodegradables (aguas poco biodegradables).
+      </div>
+
+      <div class="sep"></div>
+      <h3>Ciclo ETAP → EDAR</h3>
+      <div class="flow">
+        <div class="flow-step">Río</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">ETAP (potabilización)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Consumo</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">EDAR (depuración)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Río</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── TAB 3: TECNOLOGÍAS BLANDAS ────────────────────────── -->
+  <div class="agua-panel" id="agua-3">
+
+    <div class="card card-accent">
+      <h2>8. Tecnologías Blandas / Naturales</h2>
+      <p>Aplicables cuando el núcleo tiene <strong>menos de 15.000 habitantes</strong>, los vertidos son totalmente <strong>biodegradables</strong> y no hay componente industrial significativo.</p>
+
+      <div class="sep"></div>
+      <h3>Comparativa: Blandas vs Procesos Intensivos</h3>
+      <table>
+        <thead>
+          <tr><th>Aspecto</th><th>✅ Tecnologías Blandas</th><th>⚙️ Procesos Intensivos</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coste energético</td><td>Bajo (proceso natural)</td><td>Alto (mecánico/eléctrico)</td></tr>
+          <tr><td>Coste de instalación</td><td>Bajo</td><td>Alto</td></tr>
+          <tr><td>Impacto visual</td><td>Ninguno (integradas en paisaje)</td><td>Instalaciones industriales</td></tr>
+          <tr><td>Producción de fangos</td><td>Baja</td><td>Alta</td></tr>
+          <tr><td>Superficie requerida</td><td>Grande (extensivas)</td><td>Pequeña (intensivas)</td></tr>
+          <tr><td>Velocidad de depuración</td><td>Lenta (días-semanas)</td><td>Rápida (horas)</td></tr>
+          <tr><td>Volumen tratable</td><td>Limitado</td><td>Grande</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card card-blue">
+      <h2>8.1.1 Sistema de Lagunaje</h2>
+      <p><strong>Qué es:</strong> Balsas abiertas a la atmósfera donde el agua residual se depura de forma natural aprovechando la acción solar, el viento y los microorganismos.</p>
+
+      <div class="sep"></div>
+      <h3>Los 3 Tipos de Laguna</h3>
+      <table>
+        <thead>
+          <tr><th>Tipo</th><th>Profundidad</th><th>Extensión</th><th>Oxígeno</th><th>Uso principal</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aerobia / Maduración</strong></td>
+            <td>Poco profunda</td>
+            <td>Extensa</td>
+            <td>O₂ en toda la masa</td>
+            <td>Pulido final, eliminación de patógenos</td>
+          </tr>
+          <tr>
+            <td><strong>Facultativa</strong></td>
+            <td>Intermedia</td>
+            <td>Extensa</td>
+            <td>O₂ excepto en el fondo</td>
+            <td>Tratamiento intermedio</td>
+          </tr>
+          <tr>
+            <td><strong>Anaerobia</strong></td>
+            <td>Grande (muy profunda)</td>
+            <td>Pequeña superficie</td>
+            <td>Sin O₂</td>
+            <td>Pretratamiento, carga orgánica alta</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-gold">
+        <strong>Regla de diseño:</strong><br>
+        · <strong>Profunda + poco extensa</strong> → Anaerobia (sin O₂, proceso anaeróbico)<br>
+        · <strong>Poco profunda + extensa</strong> → Aerobia (O₂ en toda la laguna)<br>
+        · <strong>Intermedia</strong> → Facultativa (O₂ en capas superiores, anóxica en el fondo)
+      </div>
+
+      <div class="sep"></div>
+      <div class="grid-2">
+        <div class="mini-card">
+          <h4>✅ Ventajas</h4>
+          <ul>
+            <li>Bajo coste de operación y mantenimiento</li>
+            <li>No requiere energía eléctrica</li>
+            <li>Integración paisajística total</li>
+            <li>Baja producción de fangos</li>
+            <li>Buena eliminación de patógenos (lagunas de maduración)</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h4>❌ Inconvenientes</h4>
+          <ul>
+            <li>Gran superficie de terreno</li>
+            <li>Proceso lento (días o semanas)</li>
+            <li>Dependencia climática (Tª, luz solar)</li>
+            <li>Posibles olores (lagunas anaerobias)</li>
+            <li>Capacidad limitada de caudal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+      <h3>Parámetros de Diseño</h3>
+      <table>
+        <thead>
+          <tr><th>Parámetro</th><th>Relevancia en el diseño</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Profundidad</strong></td><td>Determina el tipo de laguna (aerobia ↔ anaerobia)</td></tr>
+          <tr><td><strong>Tiempo de residencia</strong></td><td>Días (aerobia) a semanas (anaerobia)</td></tr>
+          <tr><td><strong>Temperatura</strong></td><td>Afecta a la actividad microbiana y la evaporación</td></tr>
+          <tr><td><strong>DBO₅</strong></td><td>Carga orgánica de entrada a tratar</td></tr>
+          <tr><td><strong>SS (Sólidos en suspensión)</strong></td><td>Turbidez que afecta a la penetración de luz</td></tr>
+          <tr><td><strong>Caudal</strong></td><td>Dimensionamiento de la superficie de la laguna</td></tr>
+          <tr><td><strong>pH</strong></td><td>Rango óptimo 7–9 para microorganismos</td></tr>
+          <tr><td><strong>O₂ disuelto</strong></td><td>Controla el tipo de proceso (aeróbico/anaeróbico)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card card-gold">
+      <h2>8.1.2 Filtros Verdes</h2>
+      <p><strong>Qué son:</strong> Terrenos plantados de chopos, álamos u otros cultivos donde se vierte el agua residual. La depuración se produce al pasar el agua a través del suelo y la vegetación.</p>
+
+      <div class="sep"></div>
+      <h3>Los 3 Procesos de Depuración</h3>
+      <div class="grid-3">
+        <div class="mini-card">
+          <h4>🪨 Físico</h4>
+          <div class="desc">
+            Filtración por la granulometría del suelo.<br><br>
+            <strong>Arcilloso:</strong> lento pero muy efectivo<br>
+            <strong>Grava:</strong> rápido pero poco efectivo
+          </div>
+        </div>
+        <div class="mini-card">
+          <h4>🌿 Químico</h4>
+          <div class="desc">
+            Asimilación de nutrientes (N, P) por las plantas.<br><br>
+            Las raíces absorben directamente los nutrientes del agua residual.
+          </div>
+        </div>
+        <div class="mini-card">
+          <h4>🦠 Biológico</h4>
+          <div class="desc">
+            Metabolización de la MO por microorganismos del suelo.<br><br>
+            Puede eliminar hasta el <strong>85%</strong> de la MO.
+          </div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+      <h3>Las 4 Etapas de Instalación</h3>
+      <div class="flow" style="flex-wrap:wrap">
+        <div class="flow-step">1. Elegir terreno adecuado</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">2. Preparar capas del suelo</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">3. Instalar sistema filtrante</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">4. Cultivar especies húmedas</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── TAB 4: EDAR — LÍNEA DE AGUA ───────────────────────── -->
+  <div class="agua-panel" id="agua-4">
+
+    <div class="card card-blue">
+      <h2>EDAR — Línea de Agua</h2>
+      <p>Flujo completo del agua residual en una EDAR tecnológica:</p>
+      <div class="flow" style="flex-wrap:wrap">
+        <div class="flow-step">Agua residual</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">PRETRATAMIENTO</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">PRIMARIO</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">SECUNDARIO</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">TERCIARIO</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">DESINFECCIÓN</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Efluente</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>§9 — PRETRATAMIENTO</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <strong>Objetivo:</strong> Eliminar sólidos gruesos y regular el caudal antes de los tratamientos principales.<br><br>
+            <strong>Regulación del caudal:</strong> Aliviaderos + tanques de homogenización para laminar los picos de caudal.<br><br>
+            <strong>Desbaste — Rejas:</strong>
+            <table style="margin:10px 0">
+              <thead><tr><th>Tipo de reja</th><th>Luz de paso</th></tr></thead>
+              <tbody>
+                <tr><td>Gruesas</td><td>40–100 mm</td></tr>
+                <tr><td>Medias</td><td>20–40 mm</td></tr>
+                <tr><td>Finas</td><td>&lt;20 mm</td></tr>
+              </tbody>
+            </table>
+            <strong>Tamices:</strong> 3–6 mm (los más empleados). Macrotamizado &gt;0,2 mm / Microtamizado &lt;100 μm. Funcionamiento: estático o rotatorio.<br><br>
+            <strong>Desarenadores:</strong> Eliminan sólidos inorgánicos pequeños (arena). La velocidad se ajusta para que lo inorgánico sedimente pero lo orgánico NO.<br><br>
+            <strong>Desengrasadores:</strong> Eliminan grasas y aceites (densidad &lt;1, flotan).<br>
+            · <em>Flotación natural:</em> por diferencia de densidad.<br>
+            · <em>Flotación artificial:</em> burbujeo forzado de aire (DAF).
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>§10 — TRATAMIENTO PRIMARIO</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <strong>Objetivo:</strong> Proceso físico/fisicoquímico de sedimentación de SS.<br>
+            <div class="highlight-gold" style="margin:10px 0">
+              <strong>⚖️ Requisitos legales:</strong> SS↓ &gt;50% y DBO₅↓ &gt;20%
+            </div>
+            <strong>Resultados:</strong> Elimina turbidez, reduce toxicidad (metales pesados), reduce parcialmente DBO.<br><br>
+            <strong>Tratamientos físicos:</strong><br>
+            · <em>Sedimentación:</em> por gravedad a baja velocidad. En 2–4 horas elimina el 65% de SS.<br>
+            &nbsp;&nbsp;Fórmula velocidad de desbordamiento: <code>v = Q (m³/d) / A (m²)</code><br>
+            · <em>Filtración:</em> elimina partículas inertes que no sedimentan.<br><br>
+            <strong>Tratamientos químicos (§10.2) — para partículas con densidad ≈ agua:</strong><br>
+            · <em>Coagulación-floculación:</em> neutralizan la carga eléctrica de los coloides → forman agregados grandes → mejoran la sedimentabilidad.<br>
+            &nbsp;&nbsp;Parámetros clave: dosis coagulante, velocidad de agitación, temperatura, pH, tiempo de mezcla.<br>
+            · <em>Ajuste de pH:</em> adición de ácido o base según necesidad.<br>
+            · <em>Precipitación:</em> insolubilización química de contaminantes disueltos.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>§11 — TRATAMIENTO SECUNDARIO O BIOLÓGICO</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <strong>Objetivo:</strong> Eliminar hasta el 90% de la materia orgánica biodegradable.<br>
+            <div class="highlight-red" style="margin:10px 0">
+              ⚠️ <strong>IMPORTANTE:</strong> NO elimina MO no biodegradable (PCBs, hidrocarburos clorados…) → requiere tratamiento terciario.
+            </div>
+            <strong>2 etapas:</strong><br>
+            1. <em>Reactor biológico</em> → microorganismos degradan la MO.<br>
+            2. <em>Decantador secundario / clarificador</em> → decanta los fangos biológicos.<br><br>
+            <strong>Reacción biológica:</strong><br>
+            <code>MO + microorganismos + O₂ → metabolitos estables + nuevos microorganismos + calor + biomasa</code><br><br>
+            <strong>2 tipos de reactor biológico:</strong><br>
+            · <em>Fangos activados:</em> microorganismos en suspensión, aireación forzada.<br>
+            · <em>Lechos bacterianos / biopelículas:</em> soporte sólido inerte (metálico, cerámico o plástico) donde los microorganismos forman una biopelícula.<br>
+            &nbsp;&nbsp;Subtipos: biodisco, filtro percolador.<br><br>
+            <div class="highlight">
+              Las EDAR pueden acabar aquí, PERO siempre hay que desinfectar antes del vertido (obligatorio por ley).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>§12–13 — TRATAMIENTO TERCIARIO Y DESINFECCIÓN</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <strong>Objetivo:</strong> Eliminar lo que no eliminan primario y secundario (sube mucho los costes).<br><br>
+            <strong>Qué elimina:</strong> N, P, SS residuales, detergentes, tóxicos no biodegradables, metales, sales minerales.<br><br>
+            <strong>Procesos del terciario:</strong><br>
+            &nbsp;&nbsp;a. Desinfección: reducción de microorganismos patógenos<br>
+            &nbsp;&nbsp;b. Nitrificación: NH₄⁺ → NO₃⁻ → N₂ (bacterias + O₂)<br>
+            &nbsp;&nbsp;c. Eliminación de P: cal → precipita como sal de fosfato cálcico<br>
+            &nbsp;&nbsp;d. Eliminación de SS y DBO residual: coagulación + ultrafiltrado<br>
+            &nbsp;&nbsp;e. Recuperación de calor: oxidación<br>
+            &nbsp;&nbsp;f. Hidrocarburos clorados (MO no biodegradable): adsorción con carbón activo<br>
+            &nbsp;&nbsp;g. Eliminación de sales: ósmosis inversa, intercambio iónico<br><br>
+            <strong>Desinfección (§13) — siempre obligatoria al final:</strong>
+            <table style="margin:10px 0">
+              <thead><tr><th>Método</th><th>Características</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Cloración (Cl₂ gaseoso)</strong></td><td>Más simple y barato</td></tr>
+                <tr><td><strong>Ozonización (O₃)</strong></td><td>Mata todos los microorganismos, sin residuos clorados</td></tr>
+                <tr><td><strong>Lámparas UV</strong></td><td>Caro pero muy eficaz, sin productos secundarios</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight-red">
+              ⚠️ La desinfección <strong>NO consigue esterilización completa</strong>.<br>
+              El agua resultante es apta para riego y limpieza exterior, pero <strong>NUNCA</strong> como agua potable de grifo.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── TAB 5: EDAR — LODOS Y GAS ─────────────────────────── -->
+  <div class="agua-panel" id="agua-5">
+
+    <div class="card card-red">
+      <h2>§14 — Línea de Lodos (Fangos)</h2>
+      <div class="def-box">
+        <div class="def-term">¿Qué son los lodos?</div>
+        <div class="def-text">Cualquier desecho generado en la EDAR. Es un agua residual <strong>MÁS contaminada</strong> que la de partida. Los sólidos gruesos del pretratamiento NO son lodos. Los lodos del terciario NO se gestionan en el flujo normal (contienen compuestos peligrosos).</div>
+      </div>
+
+      <div class="sep"></div>
+      <h3>Tipos de Fango</h3>
+      <div class="grid-2">
+        <div class="mini-card">
+          <h4>Fango Primario</h4>
+          <div class="desc">SS con 20% de MO e inorgánicos. Procede de la sedimentación del tratamiento primario.</div>
+        </div>
+        <div class="mini-card">
+          <h4>Fango Secundario</h4>
+          <div class="desc">MO: biomasa microbiana no degradada. Es fermentable (produce olores). Procede del tratamiento biológico.</div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+      <h3>Etapas de Tratamiento de Lodos</h3>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>14.1 — Espesamiento</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <strong>Objetivo:</strong> Eliminar agua por gravedad → reducir el volumen del fango.<br>
+          El agua extraída se reintegra al inicio de la línea de agua.
+        </div></div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>14.2 — Estabilización ⭐</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <strong>Objetivo:</strong> Reducir la MO biodegradable hasta que el fango <strong>deje de ser fermentable</strong> y no produzca olores.<br><br>
+          <strong>Métodos disponibles:</strong><br>
+          · <em>Digestores anaerobios</em> → produce <strong>biogás (CH₄)</strong> — el más importante ⭐<br>
+          · Digestores aeróbicos<br>
+          · Estabilización química<br>
+          · Tratamiento térmico (esterilización por secado)<br>
+          · Compostaje
+        </div></div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>14.3 — Acondicionamiento</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <strong>Objetivo:</strong> Coagulación de los sólidos → obtener un sólido no fermentable e inerte.<br>
+          Se aplica acondicionamiento químico o térmico antes de la deshidratación.
+        </div></div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>14.4 — Reducción de Volumen (Deshidratación)</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <strong>Objetivo:</strong> Aumentar la concentración de materia seca → dar textura sólida al fango.<br><br>
+          <strong>Métodos:</strong> Deshidratación mecánica (filtro banda, centrífuga), secado térmico, secado natural en lechos de arena.
+        </div></div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <span>14.5 — Evacuación Final</span><span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <strong>Destinos posibles del fango deshidratado:</strong><br>
+          · <em>Compostaje:</em> si tiene alto contenido en MO (normalmente trat. secundario)<br>
+          · <em>Incineración:</em> cenizas para ladrillos (si alto contenido inorgánico)<br>
+          · <em>Vertedero autorizado</em><br>
+          · <em>Reutilización agrícola:</em> si fue estabilizado previamente (cumple normativa)
+        </div></div>
+      </div>
+    </div>
+
+    <div class="card card-gold">
+      <h2>§15 — Línea de Gas (Biogás)</h2>
+      <p><strong>Cuándo se genera:</strong> Cuando los fangos tienen alto contenido en MO y se descomponen <strong>sin O₂</strong> (proceso anaerobio en los digestores).</p>
+      <p><strong>Producto:</strong> Biogás con alto contenido en <strong>metano (CH₄)</strong>.</p>
+      <div class="highlight">
+        <strong>Alto poder calorífico</strong> → se usa como energía para alimentar la propia planta depuradora, reduciendo sus costes operativos.
+      </div>
+
+      <div class="sep"></div>
+      <h3>Digestión Aerobia vs Anaerobia</h3>
+      <table>
+        <thead>
+          <tr><th>Característica</th><th>Digestión Aerobia</th><th>Digestión Anaerobia</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Presencia de O₂</td><td>Con O₂</td><td>Sin O₂</td></tr>
+          <tr><td>Productos principales</td><td>CO₂ + H₂O + calor</td><td>Biogás (CH₄ + CO₂) + digestato</td></tr>
+          <tr><td>Produce biogás</td><td>No</td><td>Sí (~60% CH₄)</td></tr>
+          <tr><td>Coste energético</td><td>Mayor (necesita aireación)</td><td>Menor + recupera energía</td></tr>
+          <tr><td>Tiempo de digestión</td><td>Menor (días)</td><td>Mayor (15–30 días)</td></tr>
+          <tr><td>Residuo final</td><td>Lodo estabilizado</td><td>Digestato (abono baja calidad)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
 </div>
 
 <!-- ============================================================
@@ -973,6 +1388,13 @@ function switchTab(id) {
   const tabMap = { 'tema1': 0, 'tema2-atm': 1, 'tema2-agua': 2, 'tema2-residuos': 3 };
   document.querySelectorAll('#theory-tabs .nav-btn')[tabMap[id]].classList.add('active');
   window.scrollTo(0, 0);
+}
+
+function switchAguaTab(idx) {
+  document.querySelectorAll('.agua-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#agua-tabs .nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('agua-' + idx).classList.add('active');
+  document.querySelectorAll('#agua-tabs .nav-btn')[idx].classList.add('active');
 }
 
 function toggleAcc(header) {

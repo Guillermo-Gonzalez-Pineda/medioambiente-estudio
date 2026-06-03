@@ -310,31 +310,172 @@
 </div>
 
 <!-- ============================================================
-     SECCIÓN 2: CASO PRÁCTICO AGUA (PLACEHOLDER)
+     SECCIÓN 2: CASO PRÁCTICO AGUA — EDAR
      ============================================================ -->
 <div class="sep" style="margin:40px 0"></div>
 
-<p class="section-subtitle">Próximamente</p>
-<h1 class="section-title" style="border:none;padding:0;margin-bottom:20px">Caso Práctico: EDAR</h1>
+<p class="section-subtitle">Caso Práctico</p>
+<h1 class="section-title" style="border:none;padding:0;margin-bottom:20px">Caso Práctico: Agua — Diseño de línea de tratamiento</h1>
 
-<div class="card card-blue">
-  <div style="text-align:center;padding:32px;">
-    <div style="font-size:48px;margin-bottom:16px">💧</div>
-    <h2 style="margin-bottom:12px">Próximamente — Caso Práctico EDAR</h2>
-    <p style="max-width:500px;margin:0 auto 20px;color:var(--text3)">
-      Esta sección incluirá el caso práctico completo de una Estación Depuradora de Aguas Residuales (EDAR):
-      análisis de parámetros (DBO₅, DQO, SS, NT, PT), selección de tratamiento primario/secundario/terciario
-      y ejercicio de examen resuelto paso a paso.
-    </p>
-    <div class="flow" style="justify-content:center">
-      <div class="flow-step">Análisis de parámetros</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Línea de agua</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Línea de fangos</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Vertido al río</div>
+<!-- ── LAS 4 PREGUNTAS CLAVE ─────────────────────────────────── -->
+<div class="card card-accent">
+  <h2>🔑 Las 4 Preguntas Clave ante cualquier Enunciado de EDAR</h2>
+  <p>Ante cualquier enunciado de diseño de tratamiento de aguas, hazte siempre estas cuatro preguntas en este orden:</p>
+
+  <div class="grid-2">
+    <div class="mini-card" style="border-left:4px solid var(--accent)">
+      <div class="num">1</div>
+      <div class="label">¿Cuál es el origen del agua?</div>
+      <div class="desc" style="margin-top:8px">
+        <span class="tag tag-blue">Urbana</span> vertidos domésticos biodegradables<br>
+        <span class="tag tag-red">Industrial</span> tóxicos, metales, MO no biodegradable<br>
+        <span class="tag tag-green">Agrícola</span> N, P, biocidas por lixiviación
+      </div>
     </div>
+    <div class="mini-card" style="border-left:4px solid var(--gold)">
+      <div class="num">2</div>
+      <div class="label">¿Qué parámetros están fuera de límite?</div>
+      <div class="desc" style="margin-top:8px">
+        SS, DBO, DQO → tratamiento primario/secundario<br>
+        N, P → terciario (riesgo de eutrofización)<br>
+        Metales, patógenos → tratamiento específico
+      </div>
+    </div>
+    <div class="mini-card" style="border-left:4px solid var(--green)">
+      <div class="num">3</div>
+      <div class="label">¿Cuál es la relación DBO/DQO?</div>
+      <div class="desc" style="margin-top:8px">
+        <span class="tag tag-green">≥ 0,5</span> → biodegradable → secundario biológico eficaz<br>
+        <span class="tag tag-red">&lt; 0,2</span> → no biodegradable → terciario físico-químico
+      </div>
+    </div>
+    <div class="mini-card" style="border-left:4px solid var(--red)">
+      <div class="num">4</div>
+      <div class="label">¿Qué tamaño de núcleo / caudal?</div>
+      <div class="desc" style="margin-top:8px">
+        <span class="tag tag-green">&lt;15.000 hab</span> → tecnología blanda viable (lagunaje/filtros verdes)<br>
+        <span class="tag tag-red">&gt;15.000 hab</span> → EDAR tecnológica
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── REGLAS DE DISEÑO ──────────────────────────────────────── -->
+<div class="card card-blue">
+  <h2>📐 Reglas de Diseño de la Línea de Tratamiento</h2>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>🥇 Regla 1: Siempre pretratamiento primero</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      El pretratamiento (rejas, tamices, desarenadores, desengrasadores) es siempre el primer paso. Elimina sólidos gruesos que obstruirían los equipos siguientes.
+    </div></div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>🥈 Regla 2: Primario antes que secundario (SS antes que MO)</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      El tratamiento primario (sedimentación de SS) siempre precede al secundario biológico. Reducir los SS facilita el trabajo de los microorganismos.
+    </div></div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>🥉 Regla 3: Desinfección SIEMPRE al final</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      La desinfección (cloración, ozonización o UV) es obligatoria por ley antes del vertido, independientemente de cuántas etapas haya. El agua resultante es apta para riego, NUNCA para consumo humano directo.
+    </div></div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>4️⃣ Regla 4: DBO/DQO &lt; 0,2 → el secundario biológico no basta</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      Si la relación DBO/DQO es menor que 0,2, predomina la MO no biodegradable. El tratamiento secundario biológico no puede eliminarla → necesitas terciario físico-químico (carbón activo, ósmosis inversa).
+    </div></div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>5️⃣ Regla 5: Si hay N o P → terciario obligatorio</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      La presencia de nitrógeno o fósforo en el efluente implica riesgo de eutrofización en el río receptor. El terciario (nitrificación para N, precipitación con cal para P) es obligatorio.
+    </div></div>
+  </div>
+</div>
+
+<!-- ── ÁRBOL DE DECISIÓN ─────────────────────────────────────── -->
+<div class="card card-gold">
+  <h2>🌳 Árbol de Decisión Interactivo</h2>
+  <p style="color:var(--text3);font-size:14px;margin-bottom:16px">Sigue el árbol para seleccionar la línea de tratamiento correcta.</p>
+
+  <div id="edar-tree" style="font-size:14px;line-height:1.8"></div>
+  <div style="margin-top:16px">
+    <button class="btn btn-secondary" onclick="resetEdarTree()">🔄 Reiniciar árbol</button>
+  </div>
+</div>
+
+<!-- ── CASO EXAMEN 2021 (DBO₅) ───────────────────────────────── -->
+<div class="card card-red">
+  <h2>📝 Caso del Examen 2021 — Cálculo DBO₅</h2>
+
+  <div class="def-box">
+    <div class="def-term">Enunciado completo</div>
+    <div class="def-text">"La concentración de oxígeno disuelto en una muestra de agua residual disminuye desde 8×10⁻³ g/L hasta 5,3×10⁻³ g/L después de 5 días. Calcula la DBO₅ e indica qué nos dice sobre la biodegradabilidad."</div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Resolución paso a paso</h3>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>Paso 1 — ¿Qué es la DBO₅?</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      DBO₅ = Demanda Bioquímica de Oxígeno en 5 días.<br>
+      Es la cantidad de O₂ (mg/L) que consumen las bacterias aerobias para oxidar la materia orgánica biodegradable en 5 días.<br><br>
+      <strong>¿Por qué 5 días?</strong> Compromiso entre representatividad y practicidad. A los 5 días se ha degradado la mayor parte de la MO lábil (fácilmente degradable).
+    </div></div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>Paso 2 — Cálculo numérico</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      <strong>DBO₅ = [O₂]<sub>inicial</sub> − [O₂]<sub>final</sub></strong><br><br>
+      DBO₅ = 8×10⁻³ g/L − 5,3×10⁻³ g/L<br>
+      DBO₅ = 2,7×10⁻³ g/L<br>
+      DBO₅ = <strong>2,7 mg/L</strong>
+    </div></div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>Paso 3 — Interpretación de la relación DBO/DQO</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      <strong>Si DQO = DBO₅:</strong> toda la MO es biodegradable, no hay compuestos refractarios.<br>
+      <strong>Si DQO &gt; DBO₅:</strong> hay MO no biodegradable (diferencia = MO refractaria).<br>
+      <strong>Si DQO &lt; DBO₅:</strong> <span style="color:var(--red)">imposible</span> — DQO siempre debe ser ≥ DBO₅ (oxida todo, incluyendo lo biodegradable).<br><br>
+      <div class="highlight-gold">
+        Si DBO₅ = 2,7 mg/L y DQO = 2,7 mg/L → DBO/DQO = 1,0 → 100% biodegradable → tratamiento secundario biológico suficiente.
+      </div>
+    </div></div>
   </div>
 </div>
 
@@ -631,7 +772,110 @@ window.addEventListener('scroll', () => {
   document.getElementById('back-to-top').classList.toggle('visible', doc.scrollTop > 300);
 });
 
-window.addEventListener('DOMContentLoaded', () => renderTree());
+window.addEventListener('DOMContentLoaded', () => { renderTree(); renderEdarTree(); });
+
+// ── EDAR Decision Tree ────────────────────────────────────────
+const edarTreeData = {
+  id: 'edar-root',
+  q: '¿Menos de 15.000 hab y sin industria?',
+  si: {
+    id: 'edar-blanda',
+    q: '¿Hay terreno disponible?',
+    si: {
+      id: 'edar-filtros',
+      final: true,
+      msg: '🌿 <strong>Tecnología blanda: Filtros Verdes</strong><br>Terreno + depuración natural (físico + químico + biológico, hasta 85% MO)'
+    },
+    no: {
+      id: 'edar-lagunaje',
+      final: true,
+      msg: '💧 <strong>Tecnología blanda: Lagunaje</strong><br>Lagunas aerobias → facultativas → maduración en serie'
+    }
+  },
+  no: {
+    id: 'edar-tec',
+    info: '<strong>EDAR tecnológica</strong> → siempre: Pretratamiento + Primario',
+    q: '¿DBO/DQO ≥ 0,5?',
+    si: {
+      id: 'edar-secundario',
+      equip: '🦠 Tratamiento secundario biológico (elimina hasta 90% MO biodegradable)',
+      q: '¿Hay N o P fuera de límite?',
+      si: {
+        id: 'edar-np',
+        equip: '⚗️ Terciario: nitrificación (N) / precipitación con cal (P)',
+        q: '¿Hay MO no biodegradable?',
+        si: {
+          id: 'edar-carbon',
+          equip: '🪨 Carbón activo / ósmosis inversa',
+          final: true,
+          msg: '✅ Línea completa: Pretratamiento → Primario → Secundario → Terciario (N+P+MO refractaria) → Desinfección'
+        },
+        no: {
+          id: 'edar-nocarbon',
+          final: true,
+          msg: '✅ Tren: Pretratamiento → Primario → Secundario → Terciario (N+P) → Desinfección'
+        }
+      },
+      no: {
+        id: 'edar-nonp',
+        q: '¿Hay MO no biodegradable?',
+        si: {
+          id: 'edar-refractory',
+          equip: '🪨 Terciario: carbón activo / ósmosis inversa',
+          final: true,
+          msg: '✅ Tren: Pretratamiento → Primario → Secundario → Terciario (MO refractaria) → Desinfección'
+        },
+        no: {
+          id: 'edar-basic',
+          final: true,
+          msg: '✅ Tren básico: Pretratamiento → Primario → Secundario → Desinfección'
+        }
+      }
+    },
+    no: {
+      id: 'edar-fisicoquimico',
+      equip: '⚗️ DBO/DQO < 0,2: terciario físico-químico (coagulación + carbón activo)',
+      final: true,
+      msg: '✅ Tren: Pretratamiento → Primario → Terciario físico-químico → Desinfección (sin secundario biológico)'
+    }
+  }
+};
+
+function renderEdarTree() { showEdarNode(edarTreeData, document.getElementById('edar-tree')); }
+function resetEdarTree() { renderEdarTree(); }
+
+function showEdarNode(node, container) {
+  let html = '';
+  if (node.info) html += `<div class="highlight" style="margin:10px 0">${node.info}</div>`;
+  if (node.equip) html += `<div style="margin:6px 0;padding:6px 10px;background:var(--card-border);border-radius:6px">➕ ${node.equip}</div>`;
+  if (node.final) {
+    html += `<div class="highlight-gold" style="margin:12px 0">${node.msg}</div>`;
+    container.innerHTML = html;
+    return;
+  }
+  html += `<p style="font-weight:600;margin:12px 0 8px">${node.q}</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+      <button class="btn" onclick="edarAnswer('${node.id}','si')">✅ Sí</button>
+      <button class="btn btn-secondary" onclick="edarAnswer('${node.id}','no')">❌ No</button>
+    </div>
+    <div id="edar-child-${node.id}"></div>`;
+  container.innerHTML = html;
+}
+
+const edarNodeMap = {};
+function buildEdarMap(node) {
+  edarNodeMap[node.id] = node;
+  if (node.si) buildEdarMap(node.si);
+  if (node.no) buildEdarMap(node.no);
+}
+buildEdarMap(edarTreeData);
+
+function edarAnswer(nodeId, choice) {
+  const node = edarNodeMap[nodeId];
+  const child = node[choice];
+  const container = document.getElementById('edar-child-' + nodeId);
+  if (container) showEdarNode(child, container);
+}
 </script>
 </body>
 </html>
